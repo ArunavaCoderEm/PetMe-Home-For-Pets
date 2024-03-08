@@ -1,0 +1,13 @@
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  margin: 0 0;
+  padding: 0 0;
+}
+
+body {
+  height: 200vh;
+  background: linear-gradient(90deg, rgb(58, 140, 240) 10%, rgb(8, 119, 253) 90%);
+}

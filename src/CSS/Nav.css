@@ -202,14 +202,15 @@ select {
     writing-mode: vertical-rl;
     text-orientation: upright;
     margin-top: 40rem;
-    padding-right: 10px;
-    position: relative;
+    padding-right: 15px;
+    position: absolute;
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-weight: 700;
     font-size: 20px;
-    letter-spacing: 0.rem;
+    letter-spacing: 0.1rem;
     color: rgb(105, 162, 246);
     transition: 0.4s;
+    margin-left: 25px;
   }
   
 
@@ -227,6 +228,14 @@ select {
 }
 #navbar:hover {
     width: 16em;
+}
+
+.logo {
+    margin-left: 20px;
+    margin-top: 10px;
+    width: 60px;
+    height: 50px;
+    cursor: pointer;
 }
 
 .logot {
@@ -314,6 +323,8 @@ select {
     overflow: hidden;
     opacity: 0;
     display: flex;
+    transition: 0.3s;
+    font-weight: 600;
 }
 #navbar:hover .link-text {
     width: calc(100% - calc(5rem - 8px));
@@ -330,4 +341,9 @@ select {
 
 .link-text:hover svg {
     transform: rotateY(-180deg);
+}
+
+.navbar-item:hover .link-text{
+    letter-spacing: 0.1rem;
+    color: tomato;
 }

@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import Nav from '../Components/Nav'
+import Search from '../Components/Search'
 import Caraousal from '../Components/Caraousal'
 import  '../CSS/index.css'
 
@@ -17,6 +18,7 @@ function App() {
   return (
     <>
     <Nav/>
+    <Search/>
     <Caraousal/>
     </>
   )

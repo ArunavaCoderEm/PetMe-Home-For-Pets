@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css?family=Lato:100,300,400');
+
+
+input, .button {
+  margin: 0;
+  padding: 0;
+  outline: none;
+  border: none;
+  border-radius: 0;
+  vertical-align: top;
+} 
+
+
+form {
+  text-align: center;
+  height: 70px;
+  top: 0;
+  width: 100%;
+  margin-left: 40px;
+  box-shadow: 0 0 5px 0 ; 
+  position: fixed;
+  background: inherit; 
+  backdrop-filter: blur(10px); 
+  z-index: 999;
+}
+
+.button {
+  text-align: center;
+  border: none;
+  height: 40px;
+  margin-top: 15px;
+  width: 70px;
+  background: tomato;
+  border-radius: 0 35px 35px 0;
+  color: rgb(170, 170, 170);
+  font-size: 1.4rem;
+  transition: 0.3s;
+}
+
+input[type="text"] {
+  border: none;
+  height: 40px;
+  width: 400px;
+  margin-top: 15px;
+  outline: none;
+  margin-bottom: 20%;
+  padding-left: 40px;
+  border-radius: 35px 0 0 35px;
+  color: rgb(40, 39, 39);
+  font-size: 1.6rem;
+  font-family: 'Lato', sans-serif;
+  font-weight: 300;
+  text-align: center;
+}
+
+svg {
+    padding: 2px 5px;
+    height: 20px;
+    width: 30px;
+    fill: black;
+}
+
+.button:hover {
+    background: #313131;
+}
+
+.button:hover svg{
+    fill: tomato;
+}
+
+form:hover input {
+    box-shadow: 0 0 0 5px rgba(255, 99, 71, 0.605);
+}
+
+form:hover .button {
+    box-shadow: 0 0 0 5px rgba(255, 99, 71, 0.526);
+}
+
+.signin {
+    float: right;
+    background: #000;
+    columns: white;;
+    margin-right: 30px;
+    width: 100px;
+    height: 40px;
+}
+
+@media screen and (max-width: 685px) {
+    form {
+        margin-left: 2.5rem;
+    }
+    input[type="text"] {
+        width: 200px;
+    }
+}

@@ -94,6 +94,9 @@ function Nav() {
                 .Settings.</span>
             </a>
           </li>
+          <li className="navbar-item flexbox-left">
+            <button className='signinn'>Sign-In</button>
+          </li>
         </ul>
     </nav>
     </>

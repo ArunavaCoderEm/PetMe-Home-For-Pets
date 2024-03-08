@@ -20,7 +20,7 @@ form {
   box-shadow: 0 0 5px 0 ; 
   position: fixed;
   background: inherit; 
-  backdrop-filter: blur(10px); 
+  backdrop-filter: blur(20px); 
   z-index: 999;
 }
 
@@ -43,6 +43,7 @@ input[type="text"] {
   width: 400px;
   margin-top: 15px;
   outline: none;
+  gap: 30px;
   margin-bottom: 20%;
   padding-left: 40px;
   border-radius: 35px 0 0 35px;
@@ -77,12 +78,27 @@ form:hover .button {
 }
 
 .signin {
+    position: absolute;
     float: right;
-    background: #000;
+    margin-top: 15px;
+    background: transparent;
     columns: white;;
-    margin-right: 30px;
-    width: 100px;
+    right: 3.5rem;
+    border-radius: 5px;
+    width: 110px;
+    border: 2px solid tomato;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
     height: 40px;
+    padding: 10px 0;
+    padding-bottom: 20px;
+    transition: 0.3s;
+}
+
+.signin:hover {
+    border-color: black;
+    color: tomato;
 }
 
 @media screen and (max-width: 685px) {
@@ -91,5 +107,8 @@ form:hover .button {
     }
     input[type="text"] {
         width: 200px;
+    }
+    .signin {
+        display: none;
     }
 }

@@ -350,7 +350,7 @@ select {
 
 .signinn {
     position: absolute;
-    margin-top: 25px;
+    margin-top: 4rem;
     background: transparent;
     columns: white;;
     border-radius: 5px;
@@ -374,12 +374,13 @@ select {
     color: tomato;
 }
 
-#navbar:hover .signinn {
-    display: block;
-}
-
 @media screen and (max-width: 685px) {
     .signinn:hover {
         display: block;
     }
+    
+    #navbar:hover .signinn {
+        display: block;
+    }
+
 }

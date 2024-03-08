@@ -9,7 +9,9 @@ function Nav() {
         <ul className="navbar-items flexbox-col">
           <li className="navbar-logo flexbox-left">
             <a className="navbar-item-inner flexbox">
-              <img src=''/>
+              <img src='../Assets/logo.png'/>
+              <h5 className='logot'>PetMe</h5>
+              <p className='pvert'>NAVIGATION</p>
             </a>
           </li>
           <li className="navbar-item flexbox-left">

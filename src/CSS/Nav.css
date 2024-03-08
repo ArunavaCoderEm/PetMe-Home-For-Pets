@@ -198,6 +198,20 @@ select {
     width: 70%;
 }
 
+.pvert {
+    writing-mode: vertical-rl;
+    text-orientation: upright;
+    margin-top: 40rem;
+    padding-right: 10px;
+    position: relative;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    letter-spacing: 0.rem;
+    color: rgb(105, 162, 246);
+    transition: 0.4s;
+  }
+  
 
 #navbar {
     top: 0;
@@ -207,12 +221,30 @@ select {
     position: fixed;
     background-color: hsl(var(--background-secondary));
     transition: width .35s cubic-bezier(var(--transition-main), 1);
-    overflow-y: auto;
+    overflow-y: hidden;
     overflow-x: hidden;
     z-index: 9999;
 }
 #navbar:hover {
     width: 16em;
+}
+
+.logot {
+    margin-left: 12rem;
+    padding: 0 10px;
+    position: absolute;
+    display: none;
+    cursor: pointer;
+    transition: 0.4s;
+}
+
+#navbar:hover .pvert{
+    display: none;
+}
+
+
+#navbar:hover .logot{
+    display: block;
 }
 #navbar::-webkit-scrollbar-track {
     background-color: hsl(var(--background-secondary));
@@ -290,7 +322,12 @@ select {
 
 .link-text svg {
     margin-top: -3px;
-    width: 35px;
+    width: 40px;
     height: 35px;
-    padding-right: 10px;
+    padding: 0 10px;
+    transition: 0.3s;
+}
+
+.link-text:hover svg {
+    transform: rotateY(-180deg);
 }

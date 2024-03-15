@@ -1,8 +1,15 @@
 import { useState } from 'react'
 import Nav from '../Components/Nav'
+import Contact from '../Components/Contact'
 import Search from '../Components/Search'
 import Caraousal from '../Components/Caraousal'
 import  '../CSS/index.css'
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
 
 function App() {
   onload  = start;
@@ -17,9 +24,16 @@ function App() {
 
   return (
     <>
-    <Nav/>
-    <Search/>
-    <Caraousal/>
+      <Router>
+        <Nav/>
+        <Caraousal/>
+        <Search/>
+        <Switch>
+          <Route path="/contact">
+            <Contact/>
+          </Route>
+        </Switch>
+      </Router>
     </>
   )
 }

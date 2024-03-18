@@ -4,14 +4,11 @@ import Contact from '../Components/Contact'
 import Search from '../Components/Search'
 import Caraousal from '../Components/Caraousal'
 import  '../CSS/index.css'
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link
-} from "react-router-dom";
+
 
 function App() {
+
+  // caraousal
   onload  = start;
   function start(){	
   var i = 1;
@@ -24,16 +21,9 @@ function App() {
 
   return (
     <>
-      <Router>
-        <Nav/>
-        <Caraousal/>
-        <Search/>
-        <Switch>
-          <Route path="/contact">
-            <Contact/>
-          </Route>
-        </Switch>
-      </Router>
+      <Nav/>
+      <Caraousal/>
+      <Search/>
     </>
   )
 }

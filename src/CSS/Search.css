@@ -81,7 +81,6 @@ form:hover .button {
     position: absolute;
     float: right;
     margin-top: 15px;
-    background: transparent;
     columns: white;;
     right: 3.5rem;
     border-radius: 5px;
@@ -91,9 +90,9 @@ form:hover .button {
     justify-content: center;
     align-items: center;
     height: 40px;
-    padding: 10px 0;
-    padding-bottom: 20px;
+    padding-bottom: 30px;
     transition: 0.3s;
+    font-weight: 700;
 }
 
 .signin:hover {

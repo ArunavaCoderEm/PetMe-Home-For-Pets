@@ -362,7 +362,6 @@ select {
     justify-content: center;
     align-items: center;
     height: 40px;
-    padding: 10px 0;
     padding-bottom: 20px;
     transition: 0.3s;
     display: none;

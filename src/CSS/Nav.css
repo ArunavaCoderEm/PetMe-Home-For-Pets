@@ -325,6 +325,7 @@ select {
     display: flex;
     transition: 0.3s;
     font-weight: 600;
+    color: gray;
 }
 #navbar:hover .link-text {
     width: calc(100% - calc(5rem - 8px));
@@ -383,4 +384,8 @@ select {
         display: block;
     }
 
+}
+
+#decc {
+    color: tomato;
 }

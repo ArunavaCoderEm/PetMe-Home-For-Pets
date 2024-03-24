@@ -4,7 +4,7 @@ import Contact from '../Components/Contact'
 import Search from '../Components/Search'
 import Caraousal from '../Components/Caraousal'
 import  '../CSS/index.css'
-
+import { Route,Routes } from 'react-router-dom';
 
 function App() {
 
@@ -22,8 +22,11 @@ function App() {
   return (
     <>
       <Nav/>
-      <Caraousal/>
       <Search/>
+      <Routes>  
+        <Route  path="/"  element={<Caraousal/>}></Route>      
+        <Route path="/contact"  element={<Contact/>} />
+      </Routes>
     </>
   )
 }

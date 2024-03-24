@@ -4,7 +4,7 @@ import "../CSS/Contact.css"
 export default function () {
   return (
      <>
-     
+  
      </>
   )
 }

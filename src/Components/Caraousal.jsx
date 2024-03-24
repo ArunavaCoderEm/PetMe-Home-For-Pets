@@ -16,7 +16,6 @@ function Caraousal() {
 	<div className="slide_img" id="one">			
 			
 			<img src="https://www.hdwallpapers.in/download/golden_retriever_dog_in_red_yellow_lights_blur_bokeh_background_4k_hd_dog-3840x2160.jpg"/>
-			
 				<label className="prev" for="i4"><span></span></label>
 				<label className="next" for="i2"><span></span></label>	
 		

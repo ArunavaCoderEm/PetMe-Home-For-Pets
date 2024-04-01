@@ -87,7 +87,7 @@ function Nav() {
             </a>
           </li>
           <li className="navbar-item flexbox-left">
-            <button className='signinn btn btn-primary'>Sign-In</button>
+            <button className='signinn btn btn-primary my-4 mx-auto'>Sign-In</button>
           </li>
         </ul>
     </nav>

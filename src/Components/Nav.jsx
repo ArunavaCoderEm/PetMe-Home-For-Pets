@@ -90,8 +90,8 @@ function Nav() {
             <button className='signinn btn btn-primary'>Sign-In</button>
           </li>
         </ul>
-        <Search/>
     </nav>
+    <Search/>
     </>
   )
 }

@@ -17,19 +17,22 @@ a {
 
 form {
   text-align: center;
-  height: 70px;
+  height: 5rem;
   top: 0;
-  width: 100%;
+  right: 0;
+  margin: auto;
+  width: 80%;
   margin-left: 40px;
   position: fixed; 
-  z-index: 999;
+  background: hsl(256, 12%, 12%);
+  z-index: 99999;
 }
 
 .button {
   text-align: center;
   border: none;
   height: 40px;
-  margin-top: 15px;
+  margin-top: 20px;
   width: 70px;
   background: tomato;
   border-radius: 0 35px 35px 0;
@@ -42,7 +45,7 @@ input[type="text"] {
   border: none;
   height: 40px;
   width: 400px;
-  margin-top: 15px;
+  margin-top: 20px;
   outline: none;
   gap: 30px;
   margin-bottom: 20%;
@@ -81,7 +84,7 @@ form:hover .button {
 .signin {
     position: absolute;
     float: right;
-    margin-top: 15px;
+    margin-top: 20px;
     columns: white;;
     right: 3.5rem;
     border-radius: 5px;

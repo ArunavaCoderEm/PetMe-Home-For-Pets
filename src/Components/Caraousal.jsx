@@ -38,22 +38,22 @@ function Carousel() {
     }, []);
 
     return (
-        <div id="carouselExampleIndicators" className="carousel slide ml-5" data-ride="carousel">
+        <div id="carouselExampleIndicators" className="carousel slide ml-5 mt-4" data-ride="carousel">
             <div className="carousel-inner">
                 {slides.map((slide, index) => (
                     <div className={`carousel-item ${index === currentIndex ? 'active' : ''}`} key={index}>
-                        <img src={slide.image} className="d-block w-100" style={{maxHeight: '650px'}} alt={`Slide ${index}`} />
+                        <img src={slide.image} className="d-block w-100" style={{maxHeight: '700px'}} alt={`Slide ${index}`} />
                         <div className="carousel-caption d-none d-md-block">
-                            <h5 className='text-black'>{slide.heading}</h5>
-                            <p className='text-black'>{slide.caption}</p>
+                            <h5 className='text-black bg-info py-2'>{slide.heading}</h5>
+                            <p className='text-black bg-warning py-1'>{slide.caption}</p>
                         </div>
                     </div>
                 ))}
             </div>
-            <a className="carousel-control-prev bg-primary" href="#carouselExampleIndicators" role="button" onClick={handlePrev}>
+            <a className="carousel-control-prev bg-primary" href="#" role="button" onClick={handlePrev}>
                 <span className="carousel-control-prev-icon" aria-hidden="true"></span>
             </a>
-            <a className="carousel-control-next bg-primary" href="#carouselExampleIndicators" role="button" onClick={handleNext}>
+            <a className="carousel-control-next bg-primary" href="#" role="button" onClick={handleNext}>
                 <span className="carousel-control-next-icon" aria-hidden="true"></span>
             </a>
         </div>

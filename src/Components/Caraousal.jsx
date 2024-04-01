@@ -1,61 +1,63 @@
-import { useState } from 'react'
-import  '../CSS/Caraousal.css'
+import React, { useState, useEffect } from 'react';
 
-function Caraousal() {
+function Carousel() {
+    const [currentIndex, setCurrentIndex] = useState(0);
 
-  return (
-    <>
-    <div className="containe">
-	
+    const slides = [
+        {
+            image: "https://media-be.chewy.com/wp-content/uploads/2021/06/01091720/Siberian-Husky_FeaturedImage.jpg",
+            heading: "Siberian Husky",
+            caption: "Siberian huskies are classic northern dogs. They are intelligent but somewhat independent and stubborn."
+        },
+        {
+            image: "https://i.pinimg.com/originals/6a/4d/ce/6a4dce25a816509df7bb818b72e24dbe.jpg",
+            heading: "Persian Cat",
+            caption: "Persian cats are medium-sized, usually weigh between seven and 12 pounds, and measure from 10-15 inches tall. "
+        },
+        {
+            image: "https://i.pinimg.com/originals/5d/22/96/5d2296637cfef17f1a94514d537e02cd.jpg",
+            heading: "Golden Retriever",
+            caption: "The Golden Retriever is a sturdy, muscular dog of medium size, famous for the dense, lustrous coat of gold that gives the breed its name."
+        }
+    ];
 
-	<input type="radio" id="i1" name="images" checked/>
-	<input type="radio" id="i2" name="images" />
-	<input type="radio" id="i3" name="images" />
-	<input type="radio" id="i4" name="images"  />
-	
-	<div className="slide_img" id="one">			
-			
-			<img src="https://www.hdwallpapers.in/download/golden_retriever_dog_in_red_yellow_lights_blur_bokeh_background_4k_hd_dog-3840x2160.jpg"/>
-				<label className="prev" for="i4"><span></span></label>
-				<label className="next" for="i2"><span></span></label>	
-		
-	</div>
-	
-	<div className="slide_img" id="two">
-		
-			<img src="https://i.imgur.com/2auciE0.jpg" />
-			
-				<label className="prev" for="i1"><span></span></label>
-				<label className="next" for="i3"><span></span></label>
-		
-	</div>
-			
-	<div className="slide_img" id="three">
-			<img src="https://s1.1zoom.me/b6055/224/Dogs_Husky_536350_1920x1080.jpg"/>	
-			
-				<label className="prev" for="i2"><span></span></label>
-				<label className="next" for="i4"><span></span></label>
-	</div>
+    const handlePrev = () => {
+        setCurrentIndex((prevIndex) => (prevIndex === 0 ? slides.length - 1 : prevIndex - 1));
+    };
 
+    const handleNext = () => {
+        setCurrentIndex((prevIndex) => (prevIndex === slides.length - 1 ? 0 : prevIndex + 1));
+    };
 
-	<div className="slide_img" id="four">
-			<img src="https://wallpapercave.com/wp/wp3492733.jpg"/>	
-			
-				<label className="prev" for="i3"><span></span></label>
-				<label className="next" for="i1"><span></span></label>
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setCurrentIndex((prevIndex) => (prevIndex === slides.length - 1 ? 0 : prevIndex + 1));
+        }, 3000); 
 
-	</div>
+        return () => clearInterval(interval);
+    }, []);
 
-	<div id="nav_slide">
-		<label for="i1" className="dots" id="dot1"></label>
-		<label for="i2" className="dots" id="dot2"></label>
-		<label for="i3" className="dots" id="dot3"></label>
-		<label for="i4" className="dots" id="dot4"></label>
-	</div>
-		
-</div>
-    </>
-  )
+    return (
+        <div id="carouselExampleIndicators" className="carousel slide" data-ride="carousel">
+            <div className="carousel-inner">
+                {slides.map((slide, index) => (
+                    <div className={`carousel-item ${index === currentIndex ? 'active' : ''}`} key={index}>
+                        <img src={slide.image} className="d-block w-100" style={{maxHeight: '650px'}} alt={`Slide ${index}`} />
+                        <div className="carousel-caption d-none d-md-block">
+                            <h5 className='text-black'>{slide.heading}</h5>
+                            <p className='text-black'>{slide.caption}</p>
+                        </div>
+                    </div>
+                ))}
+            </div>
+            <a className="carousel-control-prev" href="#carouselExampleIndicators" role="button" onClick={handlePrev}>
+                <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+            </a>
+            <a className="carousel-control-next" href="#carouselExampleIndicators" role="button" onClick={handleNext}>
+                <span className="carousel-control-next-icon" aria-hidden="true"></span>
+            </a>
+        </div>
+    );
 }
 
-export default Caraousal
+export default Carousel;

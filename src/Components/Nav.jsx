@@ -9,14 +9,14 @@ function Nav() {
   return (
     <>
       <nav id="navbar">
+        <li className="navbar-logo flexbox-left position-fixed">
+          <Link to="/" className="navbar-item-inner flexbox">
+            <img className='logo' src= {Logo} alt='logo' />
+            <h5 className='logot'>PetMe</h5>
+          </Link>
+        </li>
         <ul className="navbar-items flexbox-col">
-          <li className="navbar-logo flexbox-left">
-            <a className="navbar-item-inner flexbox">
-              <img className='logo' src= {Logo} alt='logo' />
-              <h5 className='logot'>PetMe</h5>
-              <p className='pvert'>NAVIGATION</p>
-            </a>
-          </li>
+
           <li className="navbar-item flexbox-left">
             <Link to='/' className="navbar-item-inner flexbox-left" id='decc'>
               <div className="navbar-item-inner-icon-wrapper flexbox">

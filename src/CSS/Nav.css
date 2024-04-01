@@ -222,12 +222,11 @@ select {
     position: fixed;
     background-color: hsl(var(--background-secondary));
     transition: width .35s cubic-bezier(var(--transition-main), 1);
-    overflow-y: hidden;
     overflow-x: hidden;
     z-index: 9999;
 }
 #navbar:hover {
-    height: 100vh;
+    height: 70vh;
 }
 
 .logo {
@@ -385,4 +384,26 @@ select {
 
 #decc {
     color: tomato;
+}
+
+.navbar-logo {
+    z-index: 999;
+}
+
+.navbar-logo a h5 {
+    color: gray;    
+    cursor: pointer;
+}
+
+.navbar-logo a {
+    cursor: pointer;
+}
+
+.navbar-items {
+    margin-top: 5rem;
+}
+
+a {
+    text-decoration: none;
+
 }

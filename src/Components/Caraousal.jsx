@@ -38,7 +38,7 @@ function Carousel() {
     }, []);
 
     return (
-        <div id="carouselExampleIndicators" className="carousel slide" data-ride="carousel">
+        <div id="carouselExampleIndicators" className="carousel slide ml-5" data-ride="carousel">
             <div className="carousel-inner">
                 {slides.map((slide, index) => (
                     <div className={`carousel-item ${index === currentIndex ? 'active' : ''}`} key={index}>
@@ -50,10 +50,10 @@ function Carousel() {
                     </div>
                 ))}
             </div>
-            <a className="carousel-control-prev" href="#carouselExampleIndicators" role="button" onClick={handlePrev}>
+            <a className="carousel-control-prev bg-primary" href="#carouselExampleIndicators" role="button" onClick={handlePrev}>
                 <span className="carousel-control-prev-icon" aria-hidden="true"></span>
             </a>
-            <a className="carousel-control-next" href="#carouselExampleIndicators" role="button" onClick={handleNext}>
+            <a className="carousel-control-next bg-primary" href="#carouselExampleIndicators" role="button" onClick={handleNext}>
                 <span className="carousel-control-next-icon" aria-hidden="true"></span>
             </a>
         </div>

@@ -9,21 +9,10 @@ import { Route,Routes } from 'react-router-dom';
 
 function App() {
 
-  // caraousal
-  onload  = start;
-  function start(){	
-  var i = 1;
-  function Move(){ 	
-    i = (i%4)+1; 
-    document.getElementById('i'+i).checked = true;
-  }
-  setInterval(Move,3000);
-  }
 
   return (
     <>
       <Nav/>
-      <Search/>
       <Routes>  
         <Route  path="/"  element={<Caraousal/>}></Route>      
         <Route path="/contact"  element={<Contact/>} />

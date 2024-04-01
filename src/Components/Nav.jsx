@@ -1,8 +1,8 @@
-import { useState } from 'react'
 import '../CSS/Nav.css'
 import Logo from "../Assets/logopet.png"
 import { Link } from 'react-router-dom'
-import Contact from './Contact'
+import Search  from '../Components/Search'
+
 
 function Nav() {
 
@@ -90,6 +90,7 @@ function Nav() {
             <button className='signinn btn btn-primary'>Sign-In</button>
           </li>
         </ul>
+        <Search/>
     </nav>
     </>
   )

@@ -2,7 +2,7 @@ import { useState } from 'react'
 import  '../CSS/Search.css'
 import Logo from "../Assets/logopet.png"
 import { Link } from 'react-router-dom'
-import Sign from './Sign'
+import Sign from '../Pages/Sign'
 
 function Search() {
 

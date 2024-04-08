@@ -12,7 +12,7 @@ function Nav() {
         <li className="navbar-logo flexbox-left position-fixed">
           <Link to="/" className="navbar-item-inner flexbox">
             <img className='logo' src= {Logo} alt='logo' />
-            <h5 className='logot'>PetMe</h5>
+            <h5 className='logot text-3xl font-bold'>PetMe</h5>
           </Link>
         </li>
         <ul className="navbar-items flexbox-col">

@@ -23,16 +23,6 @@
 *, *::before, *::after {
     box-sizing: inherit;
 }
-html, body {
-    margin: 0;
-    width: 100%;
-    color: hsl(var(--text-primary));
-    font-family: var(--font-main);
-    background-color: hsl(var(--background));
-    -webkit-font-smoothing: antialiased;
-    scroll-behavior: smooth;
-    box-sizing: border-box;
-}
 
 h1, h2, h3, h4, h5, h6 {
     margin: 0;

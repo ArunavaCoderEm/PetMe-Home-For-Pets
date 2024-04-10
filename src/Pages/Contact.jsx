@@ -1,11 +1,11 @@
 import React from 'react'
-import "../CSS/Contact.css"
+import '../CSS/index.css'
 
 export default function () {
   return (
      <>
-      <div className='container justify-content-center text-center'>
-        <h3 className='text-white justify-content-center'>Contact Us</h3>
+      <div className=''>
+        <h3 className='mt-24 text-white text-center font-bold text-4xl'>Contact Us</h3>
       </div>
      </>
   )

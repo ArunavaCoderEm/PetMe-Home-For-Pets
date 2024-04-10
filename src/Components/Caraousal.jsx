@@ -39,14 +39,14 @@ function Carousel() {
     }, []);
 
     return (
-        <div id="carouselExampleIndicators" className="carousel medc slide mx-auto" style={{ maxWidth: '1200px' }} data-ride="carousel">
+        <div id="carouselExampleIndicators" className="mt-10 carousel medc slide mx-auto" style={{ maxWidth: '1200px' }} data-ride="carousel">
             <div className="carousel-inner">
                 {slides.map((slide, index) => (
                     <div className={`carousel-item ${index === currentIndex ? 'active' : ''}`} key={index}>
                         <img src={slide.image} className="d-block w-100" style={{ maxHeight: '700px' }} alt={`Slide ${index}`} />
                         <div className="carousel-caption d-none d-md-block">
-                            <h5 className='text-zinc-800 text-3xl font-bold bg-transparent'>{slide.heading}</h5>
-                            <p className='text-black bg-warning bottom-0'>{slide.caption}</p>
+                            <h5 className='text-white text-3xl font-bold bg-slate-700 py-2'>{slide.heading}</h5>
+                            <p className='bg-slate-600 text-slate-300 font-semibold py-1'>{slide.caption}</p>
                         </div>
                     </div>
                 ))}

@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom';
+import {signinemailpass, signingoogle} from '../../auth'
+import { useAuth } from '../../index';
 
 export default function Signup() {
     const [pass,setpass] = useState(false);

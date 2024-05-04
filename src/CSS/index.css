@@ -15,3 +15,7 @@ body {
   background: linear-gradient(180deg,#150038,#000000) no-repeat;
   min-height: 100vh;
 }
+
+.sha {
+  box-shadow: 0 0 20px rgb(91, 103, 238);
+}

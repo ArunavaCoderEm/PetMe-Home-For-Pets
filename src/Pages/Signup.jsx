@@ -16,13 +16,13 @@ export default function Signup() {
     }
 
     const onsubmithandle = () => {
-        
+
     }
 
 
   return (
     <>
-    <div className='max-w-[25em] rounded-sm bg-gradient-to-b from-blue-600 to-blue-900 items-center justify-center align-middle mt-10 mx-auto p-2'>
+    <div className='max-w-[25em] rounded-sm bg-gradient-to-b from-blue-600 to-blue-900 items-center justify-center align-middle mt-10 mx-auto p-2 sha'>
         <h1 className='text-center text-3xl pt-4 font-bold text-white'>Sign Up</h1>
         <form className='m-2 px-3' onSubmit={onsubmithandle}>
             <h2 className='text-xl font-thin my-3 text-white'>Email :</h2>

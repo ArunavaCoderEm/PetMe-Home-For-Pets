@@ -20,10 +20,10 @@ export default function Navbar() {
     <nav className={`${(width < 667) ? 'bg-blue-950' : 'backdrop-blur-sm bg-blue-900/30'} py-2`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-            <div className="flex">
+            <Link to="/" onClick={() => setMenu('home')} className="flex">
               <img src='./logopet.png' alt='logo' className='w-12 h-auto' />
               <h2 className='text-3xl p-1 font-bold text-white cursor-pointer'><span className='hover:text-sky-300 transition-all duration-200'>PetMe</span></h2>
-            </div>
+            </Link>
           <div className="flex items-center m-auto">
             <div className="hidden md:block ml-auto">
               <div className="flex items-center space-x-4 text-center">

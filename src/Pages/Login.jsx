@@ -31,10 +31,10 @@ export default function Signup() {
         }
             </div>
 
-            <button type='submit' className='mx-auto bg-blue-700 transition-all duration-300 hover:bg-blue-600 p-3 text-white rounded-md mt-3' onClick={onsubmit}>Log In</button>
+            <button type='submit' className='mx-auto bg-blue-700 transition-all duration-300 hover:bg-blue-600 p-3 text-white rounded-md mt-3'>Log In</button>
             <hr className='h-1 bg-black my-3' />
         </form>
-        <div className='bg-blue-700 text-white transition-all duration-300 hover:bg-blue-600 cursor-pointer m-2 px-2 rounded-md text-center flex justify-center' onClick={ongoogle}>
+        <div className='bg-blue-700 text-white transition-all duration-300 hover:bg-blue-600 cursor-pointer m-2 px-2 rounded-md text-center flex justify-center'>
         <svg xmlns="http://www.w3.org/2000/svg" className='w-6 m-2 h-auto' viewBox="0 0 488 512"><path fill="white" d="M488 261.8C488 403.3 391.1 504 248 504 110.8 504 0 393.2 0 256S110.8 8 248 8c66.8 0 123 24.5 166.3 64.9l-67.5 64.9C258.5 52.6 94.3 116.6 94.3 256c0 86.5 69.1 156.6 153.7 156.6 98.2 0 135-70.4 140.8-106.9H248v-85.3h236.1c2.3 12.7 3.9 24.9 3.9 41.4z"/></svg>
             <h2 className='p-2 font-thin'>Log In With Google</h2>
         </div>

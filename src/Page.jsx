@@ -8,7 +8,7 @@ import Search from './Components/Search'
 
 export default function Page() {
   return (
-    <>
+    <div className='bg-gradient-to-b from-blue-200 to-blue-500'>
     <Navbar/>
     <Search/>
     <Routes>
@@ -16,6 +16,6 @@ export default function Page() {
       <Route path='/' element={<Home/>}></Route>
       <Route path='/login' element={<Login/>}></Route>
     </Routes>
-    </>
+    </div>
   )
 }

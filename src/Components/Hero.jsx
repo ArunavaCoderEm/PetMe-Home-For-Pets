@@ -2,11 +2,18 @@ import React, { useState , useEffect} from 'react'
 
 export default function Hero() {
 
-    const [width, setWidth] = useState(779);
+    const [width, setWidth] = useState(window.innerWidth);
 
-    window.addEventListener("resize", function(e) {
-        setWidth(document.body.clientWidth);
-      })  
+    useEffect(()=> {
+      const handleResize = () => {
+        setWidth(window.innerWidth);
+      };
+      window.addEventListener('resize', handleResize);
+
+      return () => {
+        window.removeEventListener('resize',handleResize);
+      };
+    },[]);
 
       const [counters, setCounters] = useState({
         count1: 0,

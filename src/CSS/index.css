@@ -12,10 +12,9 @@ html {
 }
 
 body {
-  background: linear-gradient(180deg,#ffffff,#a8b7e9) no-repeat;
   min-height: 100vh;
 }
 
 .sha {
-  box-shadow: 0 0 20px rgb(91, 103, 238);
+  box-shadow: 0 0 20px rgb(0, 0, 0);
 }

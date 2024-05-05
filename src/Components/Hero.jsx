@@ -78,22 +78,22 @@ export default function Hero() {
                 <img className="object-center object-cover rounded-md sha" alt="hero" src="https://img.freepik.com/premium-photo/cute-pets-domestic-animals-nature-small-purebred-dog-playing-together-generated-by-artificial-intelligence_188544-83545.jpg"/>
                 </div>
             </div>
-            <div className="bg-white sha absolute w-4/5 mx-auto h-auto rounded-md left-0 right-0 mt-[-30px] flex">
+            <div className="bg-white sha z-1 absolute w-4/5 mx-auto h-auto rounded-md left-0 right-0 mt-[-30px] flex">
             <section className="text-black m-auto mb-3">
                 <div className="container">
                     <div className="row justify-content-center text-center">
                     <div className="col-12">
                         <h1 className="lg:text-4xl lg:px-4 sm:px-0 my-2 font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-blue-300 to-blue-500 sm:text-3xl text-center">Our Trust & Statistics</h1>
                     </div>
-                    <div className="col-md-4 my-2 bg-gradient-to-t from-blue-500 to-blue-300 py-2">
+                    <div className="col-md-4 my-2 rounded-md text-white bg-gradient-to-t from-blue-500 to-blue-300 py-2 w-52 mx-1">
                         <h2 className='font-thin'>Trusted Customers</h2>
                         <span className="display-4 font-bold">{counters.count1}+</span>
                     </div>
-                    <div className="col-md-4 my-2 bg-gradient-to-t from-blue-500 to-blue-300 py-2">
+                    <div className="col-md-4 w-52 rounded-md text-white mx-1 my-2 bg-gradient-to-t from-blue-500 to-blue-300 py-2">
                         <h2 className='font-thin'>Daily Orders</h2>
                         <span className="display-4">{counters.count2}+</span>
                     </div>
-                    <div className="col-md-4 my-2 bg-gradient-to-t from-blue-500 to-blue-300 py-2">
+                    <div className="col-md-4 w-56 rounded-md text-white mx-1 my-2 bg-gradient-to-t from-blue-500 to-blue-300 py-2">
                         <h2 className='font-thin'>Rating</h2>
                         <span className="display-4">{counters.count3} / 100</span>
                     </div>

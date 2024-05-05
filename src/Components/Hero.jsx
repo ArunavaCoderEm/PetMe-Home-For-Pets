@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 
 export default function Hero() {
 
-    const [width, setWidth] = useState(668);
+    const [width, setWidth] = useState(779);
 
     window.addEventListener("resize", function(e) {
         setWidth(document.body.clientWidth);

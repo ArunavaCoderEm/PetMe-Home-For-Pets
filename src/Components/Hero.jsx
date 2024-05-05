@@ -23,7 +23,7 @@ export default function Hero() {
                 {(width > 768) && (
                     <>
                 <ul className='mx-5 my-2 text-left'>
-                    <li className='my-2 lg:list-disc sm:list-none lg:text-left sm:text-center'>We have all varieties of pets like dogs, cats, birds, etc.</li>
+                    <li className='my-2 lg:list-disc text-left'>We have all varieties of pets like dogs, cats, birds, etc.</li>
                     <li className='my-2 list-disc'>We have the facility to deliver your desired pets to your<br/> doorstep safe and sound.</li>
                     <li className='my-2 list-disc'>You can sell pets any moment you want based on health<br/> checkup of those pets from doorstep.</li>
                     <li className='my-2 list-disc'>Every pet that you buy or sell will be finely verified<br/> by PetMe team.</li>

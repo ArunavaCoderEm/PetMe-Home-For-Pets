@@ -73,7 +73,7 @@ export default function Caraousal() {
       <Slider {...settings} className='lg:w-4/6 sm:w-auto h-auto justify-center m-auto mt-3 rounded-md bg-gradient-to-t from-blue-500 to-blue-500 p-2'>
       {slides.map((slide) => (
         <div key={slide.id} className="relative mt-5">
-          <Link className="absolute p-2 bg-gradient-to-b from-blue-700 to-blue-500 font-thin rounded-md text-white m-auto left-0 right-0 top-[-20px] text-center w-24">Details</Link>
+          <Link className="absolute sha p-2 bg-gradient-to-b from-blue-700 to-blue-500 font-thin rounded-md text-white m-auto left-0 right-0 top-[-20px] text-center w-24">Details</Link>
             <img src={slide.image} alt={`Slide ${slide.id}`} className='m-auto rounded-md sha lg:h-auto w-4/6' />
             <p className="text-white text-center lg:text-2xl sm:text-md font-bold mt-2">{slide.text}</p>
             <p className="text-white text-center text-md font-thin">{slide.para}</p>

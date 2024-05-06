@@ -58,7 +58,7 @@ export default function Hero() {
             <div className="container mx-auto flex lg:px-5 md:px-3 sm:px-2 py-5 md:flex-row flex-col items-center">
                 <div className="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center">
                 <h1 className="title-font sm:text-4xl text-3xl lg:text-left sm:text-center mb-4 font-extrabold"> Buy And Sell The Pets
-                    <br className="hidden lg:inline-block"/><span className='fancy'>Of Your Choice.</span>
+                    <br className="hidden lg:inline-block"/><span className='fancy mx-1'>Of Your Choice.</span>
                 </h1>
                 {(width > 768) && (
                     <>

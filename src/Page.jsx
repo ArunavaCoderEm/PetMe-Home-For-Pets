@@ -5,6 +5,7 @@ import Signup from './Pages/Signup'
 import Login from './Pages/Login'
 import Home from './Pages/Home'
 import Search from './Components/Search'
+import Footer from './Components/Footer'
 
 export default function Page() {
   return (
@@ -16,6 +17,7 @@ export default function Page() {
       <Route path='/' element={<Home/>}></Route>
       <Route path='/login' element={<Login/>}></Route>
     </Routes>
+    <Footer/>
     </div>
   )
 }

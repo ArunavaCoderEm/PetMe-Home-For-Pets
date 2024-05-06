@@ -67,7 +67,7 @@ export default function Caraousal() {
 
   return (
     <>
-    <div className='caraousal'>
+    <div className='caraousal mb-10'>
       <h1 className='text-center bg-clip-text text-transparent bg-gradient-to-r from-blue-100 to-blue-300 textr font-extrabold '>Top Pets People Are Liking</h1>
 
       <Slider {...settings} className='lg:w-4/6 sm:w-auto h-auto justify-center m-auto mt-3 rounded-md bg-gradient-to-t from-blue-500 to-blue-500 p-2'>

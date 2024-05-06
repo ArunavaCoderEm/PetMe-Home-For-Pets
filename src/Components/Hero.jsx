@@ -75,7 +75,7 @@ export default function Hero() {
                 )}
             </div>
                 <div className="lg:max-w-2xl lg:w-full md:w-screen w-5/6">
-                <img className="object-center object-cover rounded-md sha" alt="hero" src="https://img.freepik.com/premium-photo/cute-pets-domestic-animals-nature-small-purebred-dog-playing-together-generated-by-artificial-intelligence_188544-83545.jpg"/>
+                <img className="object-center object-cover rounded-md sha" alt="hero" src="https://cdn.pixabay.com/photo/2018/10/01/09/21/pets-3715733_640.jpg"/>
                 </div>
             </div>
             <div className="bg-white sha z-1 absolute w-4/5 mx-auto h-auto rounded-md left-0 right-0 mt-[-30px] flex">

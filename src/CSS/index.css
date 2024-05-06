@@ -41,8 +41,15 @@ body {
   margin-top: 200px;
 }
 
+.textr {
+  font-size: 35px;
+}
+
 @media only screen and (max-width: 600px) {
   .caraousal {
     margin-top: 320px;
+  }
+  .textr {
+    font-size: 20px;
   }
 }

@@ -39,6 +39,21 @@ export default function Caraousal() {
     },
   ];
 
+  const [width, setWidth] = useState(window.innerWidth);
+
+  useEffect(()=> {
+    const handleResize = () => {
+      setWidth(window.innerWidth);
+    };
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize',handleResize);
+    };
+  },[]);
+
+  const arrow = (width >= 778)
+
   const settings = {
     dots: false,
     infinite: true,
@@ -47,7 +62,7 @@ export default function Caraousal() {
     slidesToScroll: 1,
     autoplay: false,
     autoplaySpeed: 3000,
-    arrows: true,
+    arrows: arrow,
   };
 
   return (
@@ -55,7 +70,7 @@ export default function Caraousal() {
     <div className='caraousal'>
       <h1 className='text-center bg-clip-text text-transparent bg-gradient-to-r from-blue-100 to-blue-300 lg:text-3xl sm:text-2xl font-extrabold '>Top Pets People Are Liking</h1>
 
-      <Slider {...settings} className='w-4/6 justify-center m-auto mt-3 rounded-md bg-gradient-to-t from-blue-500 to-blue-500 p-2'>
+      <Slider {...settings} className='lg:w-4/6 sm:w-auto h-auto justify-center m-auto mt-3 rounded-md bg-gradient-to-t from-blue-500 to-blue-500 p-2'>
       {slides.map((slide) => (
         <div key={slide.id} className="relative">
           <button className="relative my-2 lg:top-4 sm:top-10 left-1/2 transform -translate-x-1/2 bg-gradient-to-t from-blue-500 to-blue-600 text-white px-4 py-2 rounded-md font-thin">Details</button>

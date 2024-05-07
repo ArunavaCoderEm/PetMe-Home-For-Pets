@@ -53,3 +53,22 @@ body {
     font-size: 20px;
   }
 }
+
+.preloader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.paw {
+  animation: rotate 2s linear infinite;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

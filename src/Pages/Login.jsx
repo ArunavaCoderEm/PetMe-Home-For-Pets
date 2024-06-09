@@ -1,26 +1,76 @@
-import React, { useState } from 'react'
-import { Link } from 'react-router-dom';
-
+import React, { useEffect, useState } from 'react'
+import { Link, useNavigate } from 'react-router-dom';
+import { auth, db } from '../Context/firebase'; 
+import Alert from '../Components/Alert';
 
 export default function Signup() {
     const [pass,setpass] = useState(false);
-
+    const [user, setUser] = useState(null); 
+    const nav = useNavigate();
     const [email,setemail] = useState("");
     const [passw,setpassw] = useState("");
-    const [issignin,setissignin] = useState(false);
-    const [error,seterror] = useState("");
+    const [error,seterror] = useState(false);
+  
+    useEffect(() => {
+      const unsubscribe = auth.onAuthStateChanged((currentUser) => {
+        if (currentUser) {
+          setUser(currentUser);
+        } else {
+          setUser(null);
+        }
+      });
+      return () => unsubscribe();
+    }, []);
+
+    useEffect(() => {
+      if (user) {
+        nav("/")
+      }
+    }, [user, history]);
+
  
     const togpass = () => {
         setpass(!pass);
+    }
+
+    const handlelog = async(e) => {
+        e.preventDefault();
+        try {
+            const userCredential = await auth.signInWithEmailAndPassword(email, passw);
+            const user = userCredential.user;
+      
+            const userDoc = await db.collection('users').doc(user.uid).get();
+            if (userDoc.exists) {
+              const userData = userDoc.data();
+              console.log('Signed in:', user);
+              console.log('Username:', userData.username);
+              setpassw("")
+              setemail("")
+              setTimeout(() => {
+                nav("/")
+              }, 1300);
+            } else {
+              console.log('No such user document!');
+            }
+          } catch (error) {
+            seterror(true);
+            setTimeout(() => {
+                seterror(false)
+            }, 1500);
+            console.error('Error signing in:');
+          }
     }
     
  
   return (
     <>
     <div className='max-w-[25em] rounded-sm bg-gradient-to-b from-blue-600 to-blue-900 items-center justify-center align-middle mt-10 mx-auto p-2 sha'>
+        {error &&
+            <Alert title="Error" desc="User Details Didn't match" />
+        }
         <h1 className='text-center text-3xl pt-4 font-bold text-white'>Log In</h1>
         <h1 className='text-center text-2xl pt-4 font-bold text-white'>Welcome Back !</h1>
-        <form className='m-2 px-3'>
+        <form className='m-2 px-3' onSubmit={handlelog}>
             <h2 className='text-xl font-thin my-3 text-white'>Email :</h2>
             <input type='name' className='w-full placeholder-green-600 text-green-600 border-2 border-solid focus:border-green-600 focus:ring-0 focus:outline-none h-10 text-center rounded-md' placeholder='example@gmail.com' onChange={(e) => setemail(e.target.value)} required/>
             <h2 className='text-xl font-thin my-3 text-white'>Password :</h2>

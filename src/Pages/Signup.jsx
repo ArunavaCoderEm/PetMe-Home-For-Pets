@@ -1,22 +1,55 @@
-import { createUserWithEmailAndPassword } from 'firebase/auth';
-import React, { useState } from 'react'
-import { Link } from 'react-router-dom';
+import { auth, db } from '../Context/firebase';
+import React, { useEffect, useState } from 'react'
+import { Link, useNavigate } from 'react-router-dom';
 
 export default function Signup() {
     const [pass,setpass] = useState(false);
-
+    const [user, setUser] = useState(null); 
+    const nav = useNavigate();
     const [email,setemail] = useState("");
     const [passw,setpassw] = useState("");
     const [name,setname] = useState("");
-    const [issignin,setissignin] = useState(false);
     const [error,seterror] = useState("");
+  
+    useEffect(() => {
+      const unsubscribe = auth.onAuthStateChanged((currentUser) => {
+        if (currentUser) {
+          setUser(currentUser);
+        } else {
+          setUser(null);
+        }
+      });
+      return () => unsubscribe();
+    }, []); 
+  
+    useEffect(() => {
+      if (user) {
+        nav('/'); 
+      }
+    }, [user, nav]);
 
     const togpass = () => {
         setpass(!pass);
     }
 
-    const onsubmithandle = () => {
-
+    const onsubmithandle = async (e) => {
+        e.preventDefault();
+        try {
+          const userCredential = await auth.createUserWithEmailAndPassword(email, passw);
+          const user = userCredential.user;
+          await db.collection('users').doc(user.uid).set({
+            username: name,
+            email: email,
+          });
+          console.log('User signed up:', user);
+          setTimeout(() => {
+            nav("/")
+          }, 1300);
+        } catch (error) {
+          seterror(error.message);
+          setissignin(true);
+          console.error('Error signing up:', error);
+        }
     }
 
 

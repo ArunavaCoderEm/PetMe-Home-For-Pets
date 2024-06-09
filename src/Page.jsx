@@ -1,4 +1,6 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react';
+import { auth } from './Context/firebase'; 
+import { useNavigate } from 'react-router-dom'; 
 import Navbar from './Components/Nav'
 import { Route, Routes } from 'react-router-dom'
 import Signup from './Pages/Signup'
@@ -9,6 +11,7 @@ import Footer from './Components/Footer'
 import Sellpet from './Pages/Sellpet'
 
 export default function Page() {
+
   return (
     <div className='bg-gradient-to-b from-blue-200 to-blue-500'>
     <Navbar/>

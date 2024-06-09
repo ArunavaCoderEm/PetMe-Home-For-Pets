@@ -9,6 +9,7 @@ export default function Search() {
   const handlesub = (e) => {
     e.preventDefault();
     nav(`/details/${sear}`)
+    setsear("")
   }
 
   return (

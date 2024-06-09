@@ -1,6 +1,35 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import { auth } from '../Context/firebase';
+import { Link } from 'react-router-dom';
 
 export default function Card(props) {
+
+    const[user, setUser] = useState(false);
+    const[cart, setCart] = useState(false);
+
+    useEffect(() => {
+        const unsubscribe = auth.onAuthStateChanged((currentUser) => {
+          if (currentUser) {
+            setCart(true)
+            setUser(true);
+          } else {
+            setCart(false);
+            setUser(false);
+          }
+        });
+        return () => unsubscribe();
+      }, []); 
+    
+      useEffect(() => {
+        if (user) {
+          
+        }
+      }, [user]);
+
+      const carthandle = () => {
+        console.log("cart")
+      }
+
   return (
     <>
     <div className="w-full max-w-sm sha mx-auto my-2 bg-gradient-to-br from-blue-600 to-blue-800 rounded-md">
@@ -34,7 +63,11 @@ export default function Card(props) {
             </div>
             <div className="flex items-center justify-between">
                 <span className="text-3xl font-bold mr-2 text-gray-900 dark:text-white">Rs.{props.price}</span>
-                <a href="#" className="font-semibold hover:bg-green-500 transition-all duration-200 rounded-lg text-sm px-5 py-2.5 text-center bg-green-300 text-black">Add to cart</a>
+                {cart ? 
+                <button onClick={carthandle} className="font-semibold hover:bg-green-500 transition-all duration-200 rounded-lg text-sm px-5 py-2.5 text-center bg-green-300 text-black">Add to cart</button>
+                :
+                <Link to='/signin' className="font-semibold hover:bg-green-500 transition-all duration-200 rounded-lg text-sm px-5 py-2.5 text-center bg-green-300 text-black">SignIn for cart</Link>
+                }
             </div>
         </div>
     </div>

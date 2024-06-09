@@ -3,7 +3,7 @@ import React from 'react'
 export default function Card(props) {
   return (
     <>
-    <div className="w-full max-w-sm mx-auto my-2 bg-gradient-to-br from-blue-600 to-blue-800 rounded-md">
+    <div className="w-full max-w-sm sha mx-auto my-2 bg-gradient-to-br from-blue-600 to-blue-800 rounded-md">
         <div>
             <img className="p-8 rounded-t-lg w-48 mx-auto" src={props.img} alt={props.alt} />
         </div>

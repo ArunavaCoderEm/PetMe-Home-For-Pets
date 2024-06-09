@@ -20,7 +20,7 @@ export default function Page() {
       <Route path='/' element={<Home/>}></Route>
       <Route path='/login' element={<Login/>}></Route>
       <Route path='/sell' element={<Sellpet/>}></Route>
-      <Route path='/details' element={<Details/>}></Route>
+      <Route path='/details/:res' element={<Details/>}></Route>
     </Routes>
     <Footer/>
     </div>

@@ -68,18 +68,18 @@ export default function Sellpet() {
     <>
         <section className="bg-gradient-to-tr from-blue-400 to-blue-600 mt-3 mx-2 rounded-md">
             <div className="py-8 px-4 mx-auto max-w-2xl lg:py-16">
-                <h2 className="font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-blue-200 mb-2 to-blue-400 textr text-center">Add a new Pets</h2>
+                <h2 className="font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-blue-200 mb-2 to-blue-400 textr text-center">Add a new Pet</h2>
                 <form onSubmit={addpet}>
                     <div className="grid gap-4 sm:grid-cols-2 sm:gap-6">
                         <div className="sm:col-span-2">
-                            <label htmlFor="name" className="block mb-2 font-semibold text-gray-900 dark:text-blue-700 text-bold text-xl">Owner Name</label>
+                            <label htmlFor="name" className="block mb-2 font-semibold text-gray-900 bg-slate-200 w-32 rounded p-1 dark:text-blue-700 text-bold text-xl text-center">Owner Name</label>
                             <input type="text"
                             onChange={(e) => {
                                 setowner(e.target.value)
                             }}
                             value={owner}
                             name="name" id="name" className="bg-gray-50 border mb-3 border-gray-300 text-gray-900  rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:slate-200 dark:border-gray-600 dark:placeholder-gray-400 dark:text-blue-600 text-bold text-xl dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Type product name" required />
-                            <label htmlFor="name" className="block mb-2  font-semibold text-gray-900 dark:text-blue-700 text-bold text-xl">Pet Name</label>
+                            <label htmlFor="name" className="block mb-2  font-semibold text-gray-900 bg-slate-200 w-32 rounded p-1 dark:text-blue-700 text-bold text-xl text-center">Pet Name</label>
                             <input
                             onChange={(e) => {
                                 setpet(e.target.value)
@@ -88,7 +88,7 @@ export default function Sellpet() {
                             type="text" name="name" id="name" className="bg-gray-50 border border-gray-300 text-gray-900  rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-slate-200 dark:border-gray-600 dark:placeholder-gray-400 dark:text-blue-700 text-bold text-xl dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Type product name" required />
                         </div>
                         <div className="w-full">
-                            <label htmlFor="brand" className="block mb-2  font-semibold text-gray-900 dark:text-blue-700 text-bold text-xl">Breed</label>
+                            <label htmlFor="brand" className="block mb-2  font-semibold text-gray-900 dark:text-blue-700 bg-slate-200 w-32 rounded p-1 text-bold text-xl text-center">Breed</label>
                             <input 
                             onChange={(e) => {
                                 setbreed(e.target.value)
@@ -97,7 +97,7 @@ export default function Sellpet() {
                             type="text" name="brand" id="brand" className="bg-gray-50 border border-gray-300 text-gray-900  rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:slate-200 dark:border-gray-600 dark:placeholder-gray-400 dark:text-blue-700 text-bold text-xl dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Pet breed" required />
                         </div>
                         <div className="w-full">
-                            <label htmlFor="price" className="block mb-2  font-semibold text-gray-900 dark:text-blue-700 text-bold text-xl">Price</label>
+                            <label htmlFor="price" className="block mb-2  font-semibold text-gray-900 dark:text-blue-700 text-bold bg-slate-200 w-32 rounded p-1 text-center text-xl">Price</label>
                             <input 
                             onChange={(e) => {
                                 setprice(e.target.value)
@@ -106,14 +106,14 @@ export default function Sellpet() {
                             type="number" name="price" id="price" className="bg-gray-50 border border-gray-300 text-gray-900  rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:slate-200 dark:border-gray-600 dark:placeholder-gray-400 dark:text-blue-700 text-bold text-xl dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Rs.19999" required />
                         </div>
                         <div>
-                            <label htmlFor="category" className="block mb-2  font-semibold text-gray-900 dark:text-blue-700 text-bold text-xl">Category</label>
+                            <label htmlFor="category" className="block mb-2  font-semibold text-gray-900 dark:text-blue-700 bg-slate-200 w-32 rounded p-1 text-center text-bold text-xl">Category</label>
                             <select 
                             onChange={(e) => {
                                 settype(e.target.value)
                             }}
                             value={type}
                             id="category" className="bg-gray-50 cursor-pointer border border-gray-300 text-gray-900  rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:slate-200 dark:border-gray-600 dark:placeholder-gray-400 dark:text-blue-700 text-bold text-xl dark:focus:ring-primary-500 dark:focus:border-primary-500">
-                                <option className='cursor-pointer' selected="" disabled>Select Type</option>
+                                <option className='cursor-pointer' disabled>Select Type</option>
                                 <option className='cursor-pointer' value="dog">A Dog</option>
                                 <option className='cursor-pointer' value="cat">A Cat</option>
                                 <option className='cursor-pointer' value="bird">A Bird</option>
@@ -121,7 +121,7 @@ export default function Sellpet() {
                             </select>
                         </div>
                         <div>
-                            <label htmlFor="item-weight" className="block mb-2  font-semibold text-gray-900 dark:text-blue-700 text-bold text-xl">Item Weight (kg)</label>
+                            <label htmlFor="item-weight" className="block mb-2  font-semibold text-gray-900 dark:text-blue-700 text-bold text-xl bg-slate-200 w-48 rounded p-1 text-center">Item Weight (kg)</label>
                             <input 
                             onChange={(e) => {
                                 setwgt(e.target.value)
@@ -130,15 +130,15 @@ export default function Sellpet() {
                             type="number" name="item-weight" id="item-weight" className="bg-gray-50 border border-gray-300 text-gray-900  rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:slate-200 dark:border-gray-600 dark:placeholder-gray-400 dark:text-blue-700 text-bold text-xl dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="12" required />
                         </div> 
                         <div className="sm:col-span-2">
-                            <label htmlFor="description" className="block mb-2  font-semibold text-gray-900 dark:text-blue-700 text-bold text-xl">Description</label>
+                            <label htmlFor="description" className="block mb-2  font-semibold text-gray-900 bg-slate-200 w-48 rounded p-1 text-center dark:text-blue-700 text-bold text-xl">Description</label>
                             <textarea 
                             onChange={(e) => {
                                 setdes(e.target.value)
                             }}
                             value={des}
-                            id="description" rows="8" className="block p-2.5 w-full  text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:slate-200 dark:border-gray-600 dark:placeholder-gray-400 dark:text-blue-700 text-bold text-xl dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Your description here"></textarea>
+                            id="description" rows="8" className="block p-2.5 w-full  text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:slate-200 dark:border-gray-600 dark:placeholder-gray-400 dark:text-blue-700 text-bold text-xl dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Pet description here"></textarea>
                         </div>
-                        <label htmlFor="name" className="block mb-2 font-semibold text-gray-900 dark:text-blue-700 text-bold text-xl">Pet Image</label>
+                        <label htmlFor="name" className="block font-semibold text-gray-900 dark:text-blue-700 bg-slate-200 w-48 rounded p-1 h-10 text-center text-bold text-xl">Pet Image</label>
                             <input 
                             onChange={handleImageChange}
                             type="file" accept='image/*' name="name" id="name" className="bg-gray-50 cursor-pointer border mb-3 border-gray-300 text-gray-900  rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:slate-200 dark:border-gray-600 dark:placeholder-gray-400 dark:text-blue-600 text-bold text-xl dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Type product name" required />

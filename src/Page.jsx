@@ -9,6 +9,7 @@ import Home from './Pages/Home'
 import Search from './Components/Search'
 import Footer from './Components/Footer'
 import Sellpet from './Pages/Sellpet'
+import Details from './Pages/Details';
 
 export default function Page() {
 
@@ -21,6 +22,7 @@ export default function Page() {
       <Route path='/' element={<Home/>}></Route>
       <Route path='/login' element={<Login/>}></Route>
       <Route path='/sell' element={<Sellpet/>}></Route>
+      <Route path='/details' element={<Details/>}></Route>
     </Routes>
     <Footer/>
     </div>

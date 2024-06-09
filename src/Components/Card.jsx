@@ -33,7 +33,7 @@ export default function Card(props) {
                 <span className="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800 ms-3">5.0</span>
             </div>
             <div className="flex items-center justify-between">
-                <span className="text-3xl font-bold text-gray-900 dark:text-white">Rs.{props.price}</span>
+                <span className="text-3xl font-bold mr-2 text-gray-900 dark:text-white">Rs.{props.price}</span>
                 <a href="#" className="font-semibold hover:bg-green-500 transition-all duration-200 rounded-lg text-sm px-5 py-2.5 text-center bg-green-300 text-black">Add to cart</a>
             </div>
         </div>

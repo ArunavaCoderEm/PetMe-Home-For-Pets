@@ -32,7 +32,12 @@ export default function Navbar() {
         setUser(currentUser);        
         const userDoc = await db.collection('users').doc(currentUser.uid).get();
           const userData = userDoc.data();
-          setname(userData.username);
+          if(userData){
+            setname(userData.username);
+          }
+          else{
+            setname(currentUser.displayName)
+          }
       } else {
         setUser(null);
       }

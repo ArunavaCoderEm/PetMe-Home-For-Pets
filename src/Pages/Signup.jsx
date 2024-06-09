@@ -2,6 +2,7 @@ import { auth, db } from '../Context/firebase';
 import React, { useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom';
 import Alert from '../Components/Alert';
+import firebase from 'firebase/compat/app';
 
 export default function Signup() {
     const [pass,setpass] = useState(false);
@@ -54,6 +55,25 @@ export default function Signup() {
           console.error('Error signing up');
         }
     }
+    
+    const handleGoogleSignIn = () => {
+        const provider = new firebase.auth.GoogleAuthProvider();
+        try {
+            auth.signInWithPopup(provider)
+            .then((result) => {
+                const token = result.credential.accessToken;
+                const user = result.user;
+                console.log("Google Sign-In Successful!");
+            })
+        }
+        catch(error) {
+            setalert(true);
+            setTimeout(() => {
+                setalert(false)
+            }, 1500);
+            console.error('Error signing up');
+          };
+      };
 
 
   return (
@@ -89,7 +109,7 @@ export default function Signup() {
         <h1 className='p-2 text-2xl text-white font-semibold tracking-normal text-center'>Try Signing In With Google</h1>
         <hr className='h-1 bg-black my-3' />
         <img src='./google.png' className='w-12 m-auto bg-white rounded-full my-4' />
-        <button className='bg-blue-700 mx-auto text-white transition-all duration-300 hover:bg-blue-600 cursor-pointer m-2 px-2 rounded-md text-center flex justify-center'>
+        <button className='bg-blue-700 mx-auto text-white transition-all duration-300 hover:bg-blue-600 cursor-pointer m-2 px-2 rounded-md text-center flex justify-center' onClick={handleGoogleSignIn}>
         <svg xmlns="http://www.w3.org/2000/svg" className='w-6 m-2 h-auto' viewBox="0 0 488 512"><path fill="white" d="M488 261.8C488 403.3 391.1 504 248 504 110.8 504 0 393.2 0 256S110.8 8 248 8c66.8 0 123 24.5 166.3 64.9l-67.5 64.9C258.5 52.6 94.3 116.6 94.3 256c0 86.5 69.1 156.6 153.7 156.6 98.2 0 135-70.4 140.8-106.9H248v-85.3h236.1c2.3 12.7 3.9 24.9 3.9 41.4z"/></svg>
             <h2 className='p-2 font-thin'>Sign Up With Google</h2>
         </button>

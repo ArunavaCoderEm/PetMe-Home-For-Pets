@@ -44,7 +44,7 @@ export default function Navbar() {
     if (user) {
       nav('/'); 
     }
-  }, [user, nav]);
+  }, [user]);
 
   window.addEventListener("resize", function(e) {
     setWidth(document.body.clientWidth);

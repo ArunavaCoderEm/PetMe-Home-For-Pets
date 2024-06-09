@@ -1,22 +1,21 @@
-import { initializeApp } from "firebase/app";
-import 'firebase/auth';
 import firebase from "firebase/compat/app";
-import 'firebase/firestore';
-import 'firebase/storage';
+import 'firebase/compat/auth';
+import 'firebase/compat/firestore';
+import 'firebase/compat/storage';
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDhY28IMMut_8cSBIOpqtQ5rJl1DH9Iid4",
-  authDomain: "petmeauth-1aa87.firebaseapp.com",
-  projectId: "petmeauth-1aa87",
-  storageBucket: "petmeauth-1aa87.appspot.com",
-  messagingSenderId: "12536296792",
-  appId: "1:12536296792:web:f800bd5dfbb089998ae12d"
+  apiKey: "AIzaSyDGbn41F0GV8M8rPGsMw4ty4TYUhMHjUns",
+  authDomain: "petme-1fe85.firebaseapp.com",
+  projectId: "petme-1fe85",
+  storageBucket: "petme-1fe85.appspot.com",
+  messagingSenderId: "228010808748",
+  appId: "1:228010808748:web:de817ff719ac0777ed1609"
 };
 
-const app = initializeApp(firebaseConfig);
+firebase.initializeApp(firebaseConfig);
 
 const auth = firebase.auth();
 const db = firebase.firestore();
-const store = firebase.firestore();
+const store = firebase.storage();
 
 export { auth, db, store };

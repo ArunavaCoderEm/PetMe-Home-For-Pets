@@ -4,12 +4,12 @@ import 'firebase/compat/firestore';
 import 'firebase/compat/storage';
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDGbn41F0GV8M8rPGsMw4ty4TYUhMHjUns",
-  authDomain: "petme-1fe85.firebaseapp.com",
-  projectId: "petme-1fe85",
-  storageBucket: "petme-1fe85.appspot.com",
-  messagingSenderId: "228010808748",
-  appId: "1:228010808748:web:de817ff719ac0777ed1609"
+  apiKey: "AIzaSyDZk_Cg0AXWq6a-QLvWUXTgZMp_5EYUT14",
+  authDomain: "petme-d7039.firebaseapp.com",
+  projectId: "petme-d7039",
+  storageBucket: "petme-d7039.appspot.com",
+  messagingSenderId: "656484110784",
+  appId: "1:656484110784:web:7fc1b95bd4b58954c6f825"
 };
 
 firebase.initializeApp(firebaseConfig);

@@ -1,6 +1,7 @@
 import { auth, db } from '../Context/firebase';
 import React, { useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom';
+import Alert from '../Components/Alert';
 
 export default function Signup() {
     const [pass,setpass] = useState(false);
@@ -9,7 +10,7 @@ export default function Signup() {
     const [email,setemail] = useState("");
     const [passw,setpassw] = useState("");
     const [name,setname] = useState("");
-    const [error,seterror] = useState("");
+    const [alert,setalert] = useState(false)
   
     useEffect(() => {
       const unsubscribe = auth.onAuthStateChanged((currentUser) => {
@@ -46,9 +47,11 @@ export default function Signup() {
             nav("/")
           }, 1300);
         } catch (error) {
-          seterror(error.message);
-          setissignin(true);
-          console.error('Error signing up:', error);
+            setalert(true);
+            setTimeout(() => {
+                setalert(false)
+            }, 1500);
+          console.error('Error signing up');
         }
     }
 
@@ -58,6 +61,11 @@ export default function Signup() {
     <div className="grid lg:grid-cols-3">
     <div className='max-w-[25em] rounded-sm bg-gradient-to-b from-blue-600 to-blue-900 items-center justify-center align-middle mt-10 mx-auto p-2 sha'>
         <h1 className='text-center text-3xl pt-4 font-bold text-white'>Sign Up</h1>
+        {alert &&
+            <div className='my-2 transition-all duration-400'>
+            <Alert title="Error" desc="User Email Already Exists" />
+            </div>
+        }
         <form className='m-2 px-3' onSubmit={onsubmithandle}>
             <h2 className='text-xl font-thin my-3 text-white'>Email :</h2>
             <input type='name' className='w-full placeholder-green-600 text-green-600 border-2 border-solid focus:border-green-600 focus:ring-0 focus:outline-none h-10 text-center  rounded-md' placeholder='example@gmail.com' onChange={(e) => setemail(e.target.value)} required/>

@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { auth, db } from '../Context/firebase'; 
 import Alert from '../Components/Alert';
 
-export default function Signup() {
+export default function Login() {
     const [pass,setpass] = useState(false);
     const [user, setUser] = useState(null); 
     const nav = useNavigate();
@@ -26,7 +26,7 @@ export default function Signup() {
       if (user) {
         nav("/")
       }
-    }, [user, history]);
+    }, [user, nav]);
 
  
     const togpass = () => {
@@ -57,7 +57,7 @@ export default function Signup() {
             setTimeout(() => {
                 seterror(false)
             }, 1500);
-            console.error('Error signing in:');
+            console.error('Error signing in');
           }
     }
     

@@ -1,6 +1,4 @@
-import React, { useState, useEffect } from 'react';
-import { auth } from './Context/firebase'; 
-import { useNavigate } from 'react-router-dom'; 
+import React from 'react';
 import Navbar from './Components/Nav'
 import { Route, Routes } from 'react-router-dom'
 import Signup from './Pages/Signup'

@@ -68,7 +68,7 @@ export default function Sellpet() {
     <>
         <section className="bg-gradient-to-tr from-blue-400 to-blue-600 mt-3 mx-2 rounded-md">
             <div className="py-8 px-4 mx-auto max-w-2xl lg:py-16">
-                <h2 className="font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-blue-200 to-blue-400 textr text-center">Add a new Pets</h2>
+                <h2 className="font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-blue-200 mb-2 to-blue-400 textr text-center">Add a new Pets</h2>
                 <form onSubmit={addpet}>
                     <div className="grid gap-4 sm:grid-cols-2 sm:gap-6">
                         <div className="sm:col-span-2">

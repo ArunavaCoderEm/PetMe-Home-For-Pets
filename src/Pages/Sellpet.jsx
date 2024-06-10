@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import {db, store} from '../Context/firebase'
 import { auth } from '../Context/firebase';
-import { Link, useAsyncError } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import Loaders from "../Components/Loaders"
 import Alert  from '../Components/Alert';
 

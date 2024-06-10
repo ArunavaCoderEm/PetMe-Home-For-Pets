@@ -42,8 +42,10 @@ export default function Signup() {
           await db.collection('users').doc(user.uid).set({
             username: name,
             email: email,
+            cartArray: []
           });
           console.log('User signed up:', user);
+          console.log('New Cart created :');
           setTimeout(() => {
             nav("/")
           }, 1300);
@@ -51,27 +53,35 @@ export default function Signup() {
             setalert(true);
             setTimeout(() => {
                 setalert(false)
-            }, 1500);
+            }, 2500);
           console.error('Error signing up');
         }
     }
     
-    const handleGoogleSignIn = () => {
+    const handleGoogleSignIn = async () => {
         const provider = new firebase.auth.GoogleAuthProvider();
         try {
-            auth.signInWithPopup(provider)
-            .then((result) => {
-                const token = result.credential.accessToken;
-                const user = result.user;
-                console.log("Google Sign-In Successful!");
-            })
+          const result = await auth.signInWithPopup(provider);
+          const user = result.user;
+
+          const userDocRef = db.collection('users').doc(user.uid);
+          const userDocSnapshot = await userDocRef.get();
+
+          if (userDocSnapshot.exists) {
+              const userData = userDocSnapshot.data();
+              const cartArray = userData.cartArray;
+              console.log("Existing cartArray:", cartArray);
+          } else {
+              await userDocRef.set({ cartArray: [] });
+              console.log("New user created with an empty cartArray");
+          }
         }
         catch(error) {
             setalert(true);
             setTimeout(() => {
                 setalert(false)
             }, 1500);
-            console.error('Error signing up');
+            console.error('Error signing up',error);
           };
       };
 

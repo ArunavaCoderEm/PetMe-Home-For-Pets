@@ -11,13 +11,16 @@ export default function Login() {
     const [email,setemail] = useState("");
     const [passw,setpassw] = useState("");
     const [error,seterror] = useState(false);
+    const[cart, setcart] = useState([])
   
     useEffect(() => {
       const unsubscribe = auth.onAuthStateChanged((currentUser) => {
         if (currentUser) {
           setUser(currentUser);
+          setcart(currentUser.cartArray)
         } else {
           setUser(null);
+          setcart([])
         }
       });
       return () => unsubscribe();
@@ -29,15 +32,23 @@ export default function Login() {
       }
     }, [user, nav]);
 
-    const handleGoogleLogIn = () => {
+    const handleGoogleLogIn = async () => {
       const provider = new firebase.auth.GoogleAuthProvider();
       try {
-          auth.signInWithPopup(provider)
-          .then((result) => {
-              const token = result.credential.accessToken;
-              const user = result.user;
-              console.log("Google Sign-In Successful!");
-          })
+        const result = await auth.signInWithPopup(provider);
+        const user = result.user;
+        setUser()
+        const userDocRef = db.collection('users').doc(user.uid);
+        const userDocSnapshot = await userDocRef.get();
+
+        if (userDocSnapshot.exists) {
+            const userData = userDocSnapshot.data();
+            const cartArray = userData.cartArray;
+            console.log("Existing cartArray:", cartArray);
+        } else {
+            await userDocRef.set({ cartArray: [] });
+            console.log("New user created with an empty cartArray");
+        }
       }
       catch(error) {
           seterror(true);
@@ -63,6 +74,7 @@ export default function Login() {
               const userData = userDoc.data();
               console.log('Signed in:', user);
               console.log('Username:', userData.username);
+              console.log("Existing Cart ",cart);
               setpassw("")
               setemail("")
               setTimeout(() => {
@@ -75,7 +87,7 @@ export default function Login() {
             seterror(true);
             setTimeout(() => {
                 seterror(false)
-            }, 1500);
+            }, 2500);
             console.error('Error signing in');
           }
     }

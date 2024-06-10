@@ -32,7 +32,7 @@ export default function Navbar() {
         setUser(currentUser);        
         const userDoc = await db.collection('users').doc(currentUser.uid).get();
           const userData = userDoc.data();
-          if(userData){
+          if(!currentUser.displayName){
             setname(userData.username);
           }
           else{
@@ -43,7 +43,7 @@ export default function Navbar() {
       }
     });
     return () => unsubscribe();
-  }, []); 
+  }, [user]); 
 
   useEffect(() => {
     if (user) {

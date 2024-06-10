@@ -8,6 +8,7 @@ import Search from './Components/Search'
 import Footer from './Components/Footer'
 import Sellpet from './Pages/Sellpet'
 import Details from './Pages/Details';
+import Categories from './Pages/Categories';
 
 export default function Page() {
 
@@ -21,6 +22,7 @@ export default function Page() {
       <Route path='/login' element={<Login/>}></Route>
       <Route path='/sell' element={<Sellpet/>}></Route>
       <Route path='/details/:res' element={<Details/>}></Route>
+      <Route path='/category/:id' element={<Categories/>}></Route>
     </Routes>
     <Footer/>
     </div>

@@ -79,12 +79,12 @@ export default function Caraousal() {
   return (
     <>
     <div className='caraousal mb-10'>
-      <h1 className='text-center bg-clip-text text-transparent bg-gradient-to-r from-blue-100 to-blue-300 textr font-extrabold '>Top Pets People Are Liking</h1>
+      <h1 className='text-center bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-blue-700 textr font-extrabold '>Top Pets People Are Liking</h1>
 
-      <Slider {...settings} className='lg:w-4/6 sm:w-auto h-auto justify-center m-auto mt-3 rounded-md bg-gradient-to-t from-blue-500 to-blue-500 p-2'>
+      <Slider {...settings} className='lg:w-4/6 sha sm:w-auto h-auto justify-center m-auto mt-3 rounded-md bg-gradient-to-t from-blue-500 to-blue-500 p-2'>
       {slides.map((slide) => (
         <div key={slide.id} className="relative mt-5">
-          <button onClick={() => handleNav(slide.tag)} className="absolute sha p-2 bg-gradient-to-b from-blue-700 to-blue-500 font-thin rounded-md text-white m-auto left-0 right-0 top-[-20px] text-center w-24">Details</button>
+          <button onClick={() => handleNav(slide.tag)} className="hover:scale-95 transition-all duration-200 absolute sha p-2 bg-gradient-to-b from-blue-700 to-blue-500 font-thin rounded-md text-white m-auto left-0 right-0 top-[-20px] text-center w-24">Details</button>
             <img src={slide.image} alt={`Slide ${slide.id}`} className='m-auto rounded-md sha lg:h-auto w-4/6' />
             <p className="text-white text-center lg:text-2xl sm:text-md font-bold mt-2">{slide.text}</p>
             <p className="text-white text-center text-md font-thin">{slide.para}</p>

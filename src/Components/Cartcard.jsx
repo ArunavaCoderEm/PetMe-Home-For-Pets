@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 
-const Cartcard = ({ src, alt, head, desc, price }) => {
+const Cartcard = ({ src, alt, head, desc, price, itemId, removeCartItem }) => {
 
   const takeFirstFiveWords = (sentence) => {
     const words = sentence.split(' ');
     const firstFiveWords = words.slice(0, 2);
-    const result = firstFiveWords.join(' ');  
+    const result = firstFiveWords.join(' ');    
     return result;
   };
 
@@ -23,8 +23,8 @@ const Cartcard = ({ src, alt, head, desc, price }) => {
 
   const truncatedDesc = takeFirstFiveWords(desc);
 
-  const removecart = () => {
-
+  const removeItem = () => {
+    removeCartItem(itemId);
   }
 
   return (
@@ -36,7 +36,7 @@ const Cartcard = ({ src, alt, head, desc, price }) => {
       )}
       <h1 className='text-md text-blue-600 mx-2 font-semibold'>Rs : {price}</h1>
       <div className='right-0 absolute'>
-      <button onClick={removecart} className='mx-2 sha flex justify-end bg-blue-500 text-white hover:bg-blue-600 transition-all duration-200 p-1 rounded-md'>Remove</button>
+      <button onClick={removeItem} className='mx-2 sha flex justify-end bg-blue-500 text-white hover:bg-blue-600 transition-all duration-200 p-1 rounded-md'>Remove</button>
       </div>
     </div>
   );

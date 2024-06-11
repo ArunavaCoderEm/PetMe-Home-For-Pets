@@ -74,7 +74,6 @@ export default function Cart() {
     } catch (error) {
         console.error('Error emptying cart from database: ', error);
     }
-
   }
 
 
@@ -141,7 +140,7 @@ export default function Cart() {
             </div>
             <div className='flex'> 
                 <li  className='m-2 w-full text-blue-500 font-semibold'>Delivery Charge : </li>
-                <li className='m-2 flex justify-end text text-blue-600 w-full'>Rs. <span className='text-blue-700 ml-1 font-semibold'>{(totalPrice / 200).toFixed(2)}</span></li>
+                <li className='m-2 flex justify-end text text-blue-600 w-full'>Rs. <span className='text-blue-700 ml-1 font-semibold'>{(totalPrice / 150).toFixed(2)}</span></li>
             </div>
             <div className='flex'> 
                 <li  className='m-2 w-full text-blue-500 font-semibold'>GST : </li>
@@ -155,7 +154,7 @@ export default function Cart() {
         <ul className='backdrop-blur-sm bg-white/30 rounded-md sha m-3'>
             <div className='flex'> 
                 <li  className='m-2 w-full text-blue-500 font-semibold'>Payable Charge : </li>
-                <li className='m-2 flex justify-end text text-blue-600 w-full'>Rs. <span className='text-blue-700 ml-1 font-semibold'>{(((totalPrice * 0.12) + totalPrice + (totalPrice / 200).toFixed(2)) - (0.03 * totalPrice)).toFixed(2)}
+                <li className='m-2 flex justify-end text text-blue-600 w-full'>Rs. <span className='text-blue-700 ml-1 font-semibold'>{(totalPrice + (totalPrice * 0.12) + Number((totalPrice / 150).toFixed(2)) - ((totalPrice * 0.03).toFixed(2))).toFixed(2)}
                 </span></li>
             </div>
         </ul>     

@@ -7,6 +7,7 @@ export default function Card({ img, alt, head, desc, price, own }) {
     const[user, setUser] = useState(false);
     const[cart, setCart] = useState(false);
     const[uid, setuid] = useState("")
+    const[ca, setca] = useState(false)
 
     useEffect(() => {
         const unsubscribe = auth.onAuthStateChanged((currentUser) => {
@@ -36,7 +37,7 @@ export default function Card({ img, alt, head, desc, price, own }) {
       
           try {
             const userDoc = await userRef.get();
-      
+            setca(true)
             if (userDoc.exists) {
               console.log('User document exists');
               const userData = userDoc.data();
@@ -51,15 +52,15 @@ export default function Card({ img, alt, head, desc, price, own }) {
             }
             
             console.log('Item added to cart');
-          } catch (error) {
-            console.error('Error adding item to cart: ', error);
-          }
-        } else {
-          console.log('User not logged in');
-        }
-      };
-      
-
+            } catch (error) {
+              console.error('Error adding item to cart: ', error);
+              }
+              } else {
+                console.log('User not logged in');
+                }
+                };
+                
+                
   return (
     <>
     <div className="w-full max-w-sm sha mx-auto my-2 bg-gradient-to-br from-blue-600 to-blue-800 rounded-md">
@@ -94,8 +95,15 @@ export default function Card({ img, alt, head, desc, price, own }) {
             <div className="flex items-center justify-between">          
                 <span className="text-3xl font-bold mr-2 text-white">Rs. {price}</span>
 
-                {cart ? 
-                <button onClick={carthandle} className="font-semibold hover:bg-green-500 transition-all duration-200 mb-2 rounded-lg text-sm px-3 py-2.5 text-center bg-green-300 text-black">Add to cart</button>
+                {cart ?  
+                <>
+                {!ca &&
+                  <button onClick={carthandle} className="font-semibold hover:bg-green-500 transition-all duration-200 mb-2 rounded-lg text-sm px-3 py-2.5 text-center bg-green-300 text-black">Add to cart</button>
+                }
+                {ca &&
+                  <h2 className="font-semibold hover:bg-green-500 transition-all duration-200 mb-2 rounded-lg text-sm px-3 py-2.5 text-center bg-green-300 text-black">Added</h2>
+                }
+                </>
                 :
                 <Link to='/signin' className="font-semibold hover:bg-green-500 transition-all duration-200 rounded-lg text-sm px-5 py-2.5 text-center bg-green-300 text-black">SignIn for cart</Link>
                 }

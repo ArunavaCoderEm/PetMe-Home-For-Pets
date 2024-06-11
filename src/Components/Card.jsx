@@ -1,15 +1,17 @@
 import React, { useEffect, useState } from 'react'
-import { auth } from '../Context/firebase';
+import { auth, db } from '../Context/firebase';
 import { Link } from 'react-router-dom';
 
-export default function Card(props) {
+export default function Card({ img, alt, head, desc, price, own }) {
 
     const[user, setUser] = useState(false);
     const[cart, setCart] = useState(false);
+    const[uid, setuid] = useState("")
 
     useEffect(() => {
         const unsubscribe = auth.onAuthStateChanged((currentUser) => {
           if (currentUser) {
+            setuid(currentUser.uid)
             setCart(true)
             setUser(true);
           } else {
@@ -20,26 +22,54 @@ export default function Card(props) {
         return () => unsubscribe();
       }, []); 
     
-      useEffect(() => {
-        if (user) {
-          
+      const carthandle = async () => {
+        if (user) {    
+          const userRef = db.collection('users').doc(uid);
+          const newItem = {
+            img,
+            alt,
+            head,
+            desc,
+            price,
+            own,
+          };
+      
+          try {
+            const userDoc = await userRef.get();
+      
+            if (userDoc.exists) {
+              console.log('User document exists');
+              const userData = userDoc.data();
+              const currentCart = userData.cartArray || [];
+              const updatedCart = [...currentCart, newItem];
+              await userRef.update({
+                cartArray: updatedCart,
+              });
+            } else {
+              console.log('User document does not exist');
+              await userRef.set({ cartArray: [newItem] });
+            }
+            
+            console.log('Item added to cart');
+          } catch (error) {
+            console.error('Error adding item to cart: ', error);
+          }
+        } else {
+          console.log('User not logged in');
         }
-      }, [user]);
-
-      const carthandle = () => {
-        console.log("cart")
-      }
+      };
+      
 
   return (
     <>
     <div className="w-full max-w-sm sha mx-auto my-2 bg-gradient-to-br from-blue-600 to-blue-800 rounded-md">
         <div>
-            <img className="p-2 rounded-lg sha w-48 mx-auto" src={props.img} alt={props.alt} />
+            <img className="p-2 rounded-lg sha w-48 mx-auto" src={img} alt={alt} />
         </div>
         <div className="px-5 pb-5">
-            <div>
-                <h5 className="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">{props.head}</h5>
-                <h6 className="text-sm font-semibold tracking-tight text-gray-900 dark:text-white">{props.desc}</h6>
+            <div className='mt-2'>
+                <h5 className="text-xl font-semibold tracking-tight text-white">{head}</h5>
+                <h6 className="text-sm font-semibold tracking-tight text-slate-400">{desc}</h6>
             </div>
             <div className="flex items-center mt-2.5 mb-5">
                 <div className="flex items-center space-x-1 rtl:space-x-reverse">
@@ -62,7 +92,7 @@ export default function Card(props) {
                 <span className="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800 ms-3">5.0</span>
             </div>
             <div className="flex items-center justify-between">          
-                <span className="text-3xl font-bold mr-2 text-gray-900 dark:text-white">Rs. {props.price}</span>
+                <span className="text-3xl font-bold mr-2 text-white">Rs. {price}</span>
 
                 {cart ? 
                 <button onClick={carthandle} className="font-semibold hover:bg-green-500 transition-all duration-200 mb-2 rounded-lg text-sm px-3 py-2.5 text-center bg-green-300 text-black">Add to cart</button>
@@ -70,7 +100,7 @@ export default function Card(props) {
                 <Link to='/signin' className="font-semibold hover:bg-green-500 transition-all duration-200 rounded-lg text-sm px-5 py-2.5 text-center bg-green-300 text-black">SignIn for cart</Link>
                 }
             </div>
-              <span className="text-sm font-bold mr-2 text-gray-900 dark:text-white">Own: {props.own}</span>
+              <span className="text-sm font-bold mr-2 text-white">Own: {own}</span>
         </div>
     </div>
     </>

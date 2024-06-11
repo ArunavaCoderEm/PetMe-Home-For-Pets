@@ -30,21 +30,41 @@ export default function Navbar() {
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged(async (currentUser) => {
       if (currentUser) {
-        setUser(currentUser);        
-        const userDoc = await db.collection('users').doc(currentUser.uid).get();
+        setUser(currentUser);
+        const userRef = db.collection('users').doc(currentUser.uid);
+  
+        try {
+          const userDoc = await userRef.get();
           const userData = userDoc.data();
-          if(!currentUser.displayName){
+          console.log(userData.cartArray);
+          setlen(userData.cartArray.length);
+  
+          if (!currentUser.displayName) {
             setname(userData.username);
+          } else {
+            setname(currentUser.displayName);
           }
-          else{
-            setname(currentUser.displayName)
-          }
+
+          const unsubscribeUser = userRef.onSnapshot((snapshot) => {
+            const userData = snapshot.data();
+            if (userData) {
+              console.log(userData.cartArray);
+              setlen(userData.cartArray.length);
+            }
+          });
+  
+          return () => unsubscribeUser(); 
+        } catch (error) {
+          console.error('Error fetching user document: ', error);
+        }
       } else {
         setUser(null);
       }
     });
+  
     return () => unsubscribe();
-  }, [user]); 
+  }, []);
+  
 
   useEffect(() => {
     if (user) {

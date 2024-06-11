@@ -62,13 +62,38 @@ export default function Cart() {
         <h2 className='text-center text-lg text-blue-800'>Order Details</h2>
         <ul className='backdrop-blur-sm bg-white/30 rounded-md sha m-3'>
         {cartItems.map((item, index) => (
-            <div className='flex'>
-                <li key={index} className='m-2 w-full font-semibold'>{item.head}</li>
+            <div className='flex'> 
+                <li key={index} className='m-2 w-full text-blue-500 font-semibold'>{item.head}</li>
                 <li className='m-2 flex justify-end text text-blue-600 w-full'>Rs.<span className='text-blue-700 font-semibold'>{item.price}</span></li>
             </div>
           ))} 
         </ul>
-          <h1>Total Price : {totalPrice}</h1>
+
+        <ul className='backdrop-blur-sm bg-white/30 rounded-md sha m-3'>
+            <div className='flex'> 
+                <li  className='m-2 w-full text-blue-500 font-semibold'>Total Price : </li>
+                <li className='m-2 flex justify-end text text-blue-600 w-full'>Rs. <span className='text-blue-700 ml-1 font-semibold'>{totalPrice}</span></li>
+            </div>
+            <div className='flex'> 
+                <li  className='m-2 w-full text-blue-500 font-semibold'>Delivery Charge : </li>
+                <li className='m-2 flex justify-end text text-blue-600 w-full'>Rs. <span className='text-blue-700 ml-1 font-semibold'>70</span></li>
+            </div>
+            <div className='flex'> 
+                <li  className='m-2 w-full text-blue-500 font-semibold'>GST : </li>
+                <li className='m-2 flex justify-end text text-blue-600 w-full'><span className='text-blue-700 ml-1 font-semibold'>12 %</span></li>
+            </div>
+            <div className='flex'> 
+                <li  className='m-2 w-full text-blue-500 font-semibold'>Discount : </li>
+                <li className='m-2 flex justify-end text text-blue-600 w-full'><span className='text-blue-700 ml-1 font-semibold'>3 %</span></li>
+            </div>
+        </ul>
+        <ul className='backdrop-blur-sm bg-white/30 rounded-md sha m-3'>
+            <div className='flex'> 
+                <li  className='m-2 w-full text-blue-500 font-semibold'>Payable Charge : </li>
+                <li className='m-2 flex justify-end text text-blue-600 w-full'>Rs. <span className='text-blue-700 ml-1 font-semibold'>{((totalPrice * 0.12) + totalPrice + 70) - (0.03 * totalPrice)}
+                </span></li>
+            </div>
+        </ul>     
       </div>
     </div>
         {!cartItems.length &&

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import Card from './Card'
-import { auth, db } from '../Context/firebase';
+import { db } from '../Context/firebase';
 
 export default function BelowHeroHome() {
 

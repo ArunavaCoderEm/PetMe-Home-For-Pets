@@ -14,7 +14,7 @@ export default function Sellpet() {
     const[breed, setbreed] = useState("")
     const[price, setprice] = useState(0)
     const[wgt, setwgt] = useState(0)
-    const[type, settype] = useState("")
+    const[type, settype] = useState("dog")
     const[des, setdes] = useState("")
     const[user, setUser] = useState(null)
     const[alert, setalert] = useState(false);
@@ -57,7 +57,7 @@ export default function Sellpet() {
         }, () => {
           store.ref("petimg").child(img.name).getDownloadURL().then(url => {
             db.collection("Pet").add({
-              ownname: owner,
+              ownname: owner ? owner : 'N/A',
               petname: pet,
               imgurl: url,
               bref: breed,

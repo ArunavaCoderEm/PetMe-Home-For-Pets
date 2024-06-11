@@ -193,7 +193,6 @@ export default function Sellpet() {
                                 <option className='cursor-pointer' value="dog">A Dog</option>
                                 <option className='cursor-pointer' value="cat">A Cat</option>
                                 <option className='cursor-pointer' value="bird">A Bird</option>
-                                <option className='cursor-pointer' value="others">Others</option>
                             </select>
                         </div>
                         <div>

@@ -45,7 +45,8 @@ export default function Cart() {
     <>
       <h1 className='text-center text-4xl my-5 font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-blue-800'>Your Cart</h1>
     <div className="grid lg:grid-cols-2 sm:grid-cols-1">
-    <div>
+    <div className='backdrop-blur-sm bg-white/30 sha m-2 rounded-lg'>
+    <h2 className='text-center m-2 text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-blue-700'>Ordered Items</h2>
       {(cartItems.length != 0) && 
         <>
             {cartItems.map((item, index) => (

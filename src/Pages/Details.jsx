@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import { auth, db } from '../Context/firebase';
 import Loaders from '../Components/Loaders';
 
@@ -11,6 +11,7 @@ export default function PetDetails() {
   const [cart, setCart] = useState([]);
   const [ci, setci] = useState(false);
   const [user, setUser] = useState(null);
+  const [us, setus] = useState(false)
 
   const params = useParams();
 
@@ -21,6 +22,7 @@ export default function PetDetails() {
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged(async (currentUser) => {
       if (currentUser) {
+        setus(true)
         setUser(currentUser.uid);
         const userRef = db.collection('users').doc(currentUser.uid);
         const userDoc = await userRef.get();
@@ -137,18 +139,28 @@ const removeItem = async (img) => {
                 <h2 className='lg:text-xl sm:text-sm my-3 text-center'>Pet Breed : <span className='mx-1 text-blue-500'>{pet.bref}</span></h2>
                 <h2 className='lg:text-xl sm:text-sm my-3 text-center'>Pet Type : <span className='mx-1 text-blue-500'>{pet.typef}</span></h2>
                 <div key={index} className='backdrop-blur-sm sha rounded-lg lg:text-3xl sm:text-xl font-bold text-center bg-white/30 m-2 p-2'>
-                
-                {! ci ?
-                  <button onClick={addToCart} className="rounded relative font-thin inline-flex group items-center justify-center p-1 m-1 cursor-pointer border-b-4 border-l-2 active:border-blue-600 active:shadow-none shadow-lg bg-gradient-to-tr from-blue-600 to-blue-500 border-blue-700 text-white">
-                    <span className="absolute w-0 h-0 transition-all duration-300 ease-out bg-white rounded-full group-hover:w-32 group-hover:h-32 opacity-10"></span>
-                    <span className="relative">Add to cart</span>
-                  </button>
+                {us ? 
+                  <>
+                  {! ci ?
+                    <button onClick={addToCart} className="rounded relative font-thin inline-flex group items-center justify-center p-1 m-1 cursor-pointer border-b-4 border-l-2 active:border-blue-600 active:shadow-none shadow-lg bg-gradient-to-tr from-blue-600 to-blue-500 border-blue-700 text-white">
+                      <span className="absolute w-0 h-0 transition-all duration-300 ease-out bg-white rounded-full group-hover:w-32 group-hover:h-32 opacity-10"></span>
+                      <span className="relative">Add to cart</span>
+                    </button>
+                      :
+                      <button onClick={() => removeItem(pet.imgurl)} className="rounded relative font-thin inline-flex group items-center justify-center p-1 m-1 cursor-pointer border-b-4 border-l-2 active:border-blue-600 active:shadow-none shadow-lg bg-gradient-to-tr from-blue-600 to-blue-500 border-blue-700 text-white">
+                      <span className="absolute w-0 h-0 transition-all duration-300 ease-out bg-white rounded-full group-hover:w-32 group-hover:h-32 opacity-10"></span>
+                      <span className="relative">Remove from cart</span>
+                    </button>
+                    }
+                  </>
                     :
-                    <button onClick={() => removeItem(pet.imgurl)} className="rounded relative font-thin inline-flex group items-center justify-center p-1 m-1 cursor-pointer border-b-4 border-l-2 active:border-blue-600 active:shadow-none shadow-lg bg-gradient-to-tr from-blue-600 to-blue-500 border-blue-700 text-white">
-                    <span className="absolute w-0 h-0 transition-all duration-300 ease-out bg-white rounded-full group-hover:w-32 group-hover:h-32 opacity-10"></span>
-                    <span className="relative">Remove from cart</span>
-                  </button>
-                  }
+                    <>
+                      <Link to="/signin" className="rounded relative font-thin inline-flex group items-center justify-center p-1 m-1 cursor-pointer border-b-4 border-l-2 active:border-blue-600 active:shadow-none shadow-lg bg-gradient-to-tr from-blue-600 to-blue-500 border-blue-700 text-white">
+                      <span className="absolute w-0 h-0 transition-all duration-300 ease-out bg-white rounded-full group-hover:w-32 group-hover:h-32 opacity-10"></span>
+                      <span className="relative">Signin for cart</span>
+                    </Link>
+                    </>
+                }
                 </div>
               </div>
             </div>

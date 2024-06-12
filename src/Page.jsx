@@ -35,7 +35,7 @@ export default function Page() {
       <Route path='/contact' element={<Contact/>}></Route>
       <Route path='/features' element={<Features/>}></Route>
     </Routes>
-    {/* <Footer/> */}
+    <Footer/>
     </div>
   )
 }

@@ -1,7 +1,11 @@
-# Petme
-# Vite React + TypeScript + Tailwind + Firebase + 💙
+# Petme Home For Pets
+# Vite React + JavaScript + Tailwind + Firebase + 💙
 
 Petme is a web-based platform where you can buy or sell pets of your choice. The website features functionalities like user sign-in and creating listings for pets available for sale. Built with VITE + REACT, TypeScript, Tailwind CSS, and Firebase.
+
+## Video Demonstration
+
+https://drive.google.com/file/d/1QIPpcL0YKiZMSBNZiR09ul7_R4mKIcP6/view?usp=sharing
 
 ## Table of Contents
 
@@ -41,12 +45,6 @@ http://localhost:5173
 
 Petme is a user-friendly platform for buying and selling pets. You can sign in to create listings for pets you want to sell or browse and purchase pets listed by others.
 
-## Game-rules
-
-- Both players spin the wheel.
-- The player with greater number gets increment in score.
-- If any player's score reaches 100 they win.
-
 ## Features
 
 List of the key features of the project here.
@@ -59,8 +57,10 @@ List of the key features of the project here.
 
 ## Screenshots
 
-
-## Video Demonstration
+![1](https://github.com/ArunavaCoderEm/PetMe-Home-For-Pets/assets/121813676/d08714a5-0dc5-45d8-8bb9-bb89ba1bb816)
+![4](https://github.com/ArunavaCoderEm/PetMe-Home-For-Pets/assets/121813676/c04f6ae1-8362-4714-955e-bf849ea6719b)
+![3](https://github.com/ArunavaCoderEm/PetMe-Home-For-Pets/assets/121813676/3084ec9b-e0bd-4a22-afd7-24b0b30e3a08)
+![2](https://github.com/ArunavaCoderEm/PetMe-Home-For-Pets/assets/121813676/0570782a-7417-4a25-866f-a17e41f4d359)
 
 ## Contributor
 

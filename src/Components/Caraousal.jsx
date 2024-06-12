@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import { Link, useNavigate } from 'react-router-dom';
+import {  useNavigate } from 'react-router-dom';
 
 export default function Caraousal() {
 
@@ -18,24 +18,24 @@ export default function Caraousal() {
     },
     {
       id: 2,
-      image: 'https://cdn.pixabay.com/photo/2024/02/28/07/42/european-shorthair-8601492_1280.jpg',
+      image: 'https://cdn.shopify.com/s/files/1/1199/8502/files/persian-doll-face.jpg',
       text: 'Pursian Cat',
       para: 'With fur as luxurious as moonlit silk, the Persian cat embodies regal elegance in every graceful stride.',
-      tag: 'pursiancat'
+      tag: 'persiancat'
     },
     {
       id: 3,
       image: 'https://i.natgeofe.com/n/187b3223-0b45-4aa5-ae5c-24793dd2d6cb/01-german-shepherd-coronavirus-bwtkdt_3x2.jpg',
       text: 'German Shepherd',
       para: 'The German Shepherd: loyalty in every step at every your home.',
-      tag: 'germanshephard'
+      tag: 'germanshepherd'
     },
     {
       id: 4,
       image: 'https://images.pexels.com/photos/1463295/pexels-photo-1463295.jpeg?cs=srgb&dl=pexels-frans-van-heerden-201846-1463295.jpg&fm=jpg',
       text: 'Parrot Bird',
       para: 'With vibrant feathers and a playful spirit, the parrot brings color and joy to every moment.',
-      tag: 'parrot'
+      tag: 'parrotbird'
     },
     {
       id: 5,

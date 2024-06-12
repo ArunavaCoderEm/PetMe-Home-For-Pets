@@ -34,21 +34,42 @@ export default function BelowHeroHome() {
         fetchCats();
     }, []);
 
+    const removecartItem = async (itemId) => {
+        try {
+            const user = auth.currentUser;
+            if (user) {
+                const userRef = db.collection('users').doc(user.uid);
+                const userDoc = await userRef.get();
+                if (userDoc.exists) {
+                    const userData = userDoc.data();
+                    const updatedCart = userData.cartArray.filter(item => item.img !== itemId);
+                    await userRef.update({
+                        cartArray: updatedCart,
+                    });
+                    console.log('Item removed from cart');
+                }
+            }
+        } catch (error) {
+            console.error('Error removing item from cart: ', error);
+        }
+    };
+
     return (
-        <>  
+        <>
             <div className='bg-transparent'>
                 <h1 className='text-3xl font-extrabold bg-clip-text text-center text-transparent bg-gradient-to-l from-blue-100 to-blue-300'>Most Loved Dogs</h1>
                 <div className='my-5 mx-4 grid lg:grid-cols-3 sm:grid-cols-1'>
                     {dogs.map((dog) => (
                         <div key={dog.id}>
                             <Card 
-                                itemId={dog.id}
+                                itemId={dog.imgurl}
                                 img={dog.imgurl} 
                                 alt={dog.bref} 
                                 head={dog.petname}
                                 desc={dog.desf} 
                                 price={dog.prf} 
                                 own={dog.ownname} 
+                                removecartItem={removecartItem}
                             /> 
                         </div>
                     ))}
@@ -65,6 +86,7 @@ export default function BelowHeroHome() {
                                 desc={cat.desf} 
                                 price={cat.prf} 
                                 own={cat.ownname}
+                                removecartItem={removecartItem}
                             /> 
                         </div>
                     ))}

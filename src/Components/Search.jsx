@@ -8,9 +8,13 @@ export default function Search() {
 
   const handlesub = (e) => {
     e.preventDefault();
-    nav(`/details/${sear}`)
+    nav(`/details/${conv(sear)}`)
     setsear("")
   }
+
+  function conv(str) {
+    return str.replace(/\s+/g, '').toLowerCase();
+}
 
   return (
     <>

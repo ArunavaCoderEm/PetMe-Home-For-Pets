@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import Card from './Card';
 import { db, auth } from '../Context/firebase';
+import { useNavigate } from 'react-router-dom';
 
 export default function BelowHeroHome() {
     const [dogs, setDogs] = useState([]);
     const [cats, setCats] = useState([]);
+
+    const nav = useNavigate()
 
     useEffect(() => {
         const fetchDogs = async () => {
@@ -12,6 +15,7 @@ export default function BelowHeroHome() {
                 const dogSnapshot = await db.collection('Pet').where('typef', '==', 'dog').limit(6).get();
                 const dogData = dogSnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
                 setDogs(dogData);
+                console.log(dogs)
             } catch (error) {
                 console.error('Error fetching dogs:', error);
             }
@@ -26,6 +30,7 @@ export default function BelowHeroHome() {
                 const catSnapshot = await db.collection('Pet').where('typef', '==', 'cat').limit(6).get();
                 const catData = catSnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
                 setCats(catData);
+                console.log(cats)
             } catch (error) {
                 console.error('Error fetching cats:', error);
             }
@@ -54,6 +59,11 @@ export default function BelowHeroHome() {
         }
     };
 
+    const navdethere = (tag) => {
+        console.log(tag)
+        nav(`/details/${tag}`)
+    }
+
     return (
         <>
             <div className='bg-transparent'>
@@ -70,6 +80,8 @@ export default function BelowHeroHome() {
                                 price={dog.prf} 
                                 own={dog.ownname} 
                                 removecartItem={removecartItem}
+                                tag={dog.tag}
+                                navdethere= {navdethere}
                             /> 
                         </div>
                     ))}
@@ -87,6 +99,8 @@ export default function BelowHeroHome() {
                                 price={cat.prf} 
                                 own={cat.ownname}
                                 removecartItem={removecartItem}
+                                tag={cat.tag}
+                                navdethere= {navdethere}
                             /> 
                         </div>
                     ))}

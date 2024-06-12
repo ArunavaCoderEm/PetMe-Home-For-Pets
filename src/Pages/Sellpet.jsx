@@ -45,6 +45,10 @@ export default function Sellpet() {
           console.error("No image selected");
           return;
         }
+
+        function conv(str) {
+          return str.replace(/\s+/g, '').toLowerCase();
+      }
     
         console.log(owner, pet, img, breed, price, wgt, type, des);
         const upload = store.ref(`petimg/${img.name}`).put(img);
@@ -64,7 +68,8 @@ export default function Sellpet() {
               wgtf: wgt,
               typef: type,
               desf: des,
-              prf: price
+              prf: price,
+              tag: conv(pet)
             }).then(() => {
               console.log("Pet added successfully");
               sethead("Success")

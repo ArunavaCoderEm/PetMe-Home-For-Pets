@@ -26,7 +26,7 @@ export default function Page() {
       <Route path='/category/:id' element={<Categories/>}></Route>
       <Route path='/cart' element={<Cart/>}></Route>
     </Routes>
-    <Footer/>
+    {/* <Footer/> */}
     </div>
   )
 }

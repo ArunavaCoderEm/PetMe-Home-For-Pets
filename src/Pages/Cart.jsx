@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { auth, db } from '../Context/firebase';
 import Cartcard from '../Components/Cartcard';
 import Loaders from "../Components/Loaders"
+import Alert from '../Components/Alert';
 
 export default function Cart() {
   const [user, setUser] = useState(null);
@@ -11,6 +12,7 @@ export default function Cart() {
   const[pd, setpd] = useState(false)
   const[load, setload] = useState(false)
   const[ord, setord] = useState(false)
+  const [al, setal] = useState(false);
 
   useEffect(() => {
     const totalPrice = cartItems.reduce((total, item) => total + parseInt(item.price), 0);
@@ -71,6 +73,11 @@ export default function Cart() {
         setCartItems([]);
         setload(false);
         setord(true);
+        setal(true)
+        setTimeout(() => {
+          setal(false)
+        }, 4500);
+
     } catch (error) {
         console.error('Error emptying cart from database: ', error);
     }
@@ -216,6 +223,9 @@ export default function Cart() {
         {!cartItems.length &&
         <div className='backdrop-blur-sm bg-white/30 w-1/2 m-auto rounded-lg'>
         <h1 className='text-3xl text-center my-5 p-2 font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-blue-800'>Your cart is empty.</h1>
+        {al && 
+          <Alert title="Order placed" desc="successfully" />
+        }
         </div>
         }
     </>

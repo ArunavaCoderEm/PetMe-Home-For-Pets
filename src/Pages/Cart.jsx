@@ -78,7 +78,7 @@ export default function Cart() {
 
 
   const removeCartItem = async (itemId) => {
-    const updatedCartItems = cartItems.filter((_, index) => index !== itemId); 
+    const updatedCartItems = cartItems.filter(item => item.img !== itemId); 
     setCartItems(updatedCartItems);
     const user = auth.currentUser;
     if (!user) {
@@ -106,7 +106,7 @@ export default function Cart() {
         <>
             {cartItems.map((item, index) => (
                 <Cartcard 
-                  itemId={index} 
+                  itemId={item.img} 
                   head={item.head} 
                   src={item.img} 
                   desc={item.desc} 

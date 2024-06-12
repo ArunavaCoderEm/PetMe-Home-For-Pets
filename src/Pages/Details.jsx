@@ -29,6 +29,8 @@ export default function PetDetails() {
           const currentCart = userData.cartArray || [];
           const itemInCart = currentCart.some(item => item.img === data[0]?.imgurl);
           setci(itemInCart);
+          setCart(currentCart)
+          console.log(cart)
         }
       } else {
         setUser(null);
@@ -91,12 +93,11 @@ export default function PetDetails() {
     }
 };
 
-
-const removeItem = async (tag) => {
-  console.log(tag)
-  const updatedCartItems = cart.filter(item => item.tag !== tag);
+const removeItem = async (img) => {
+  // Filter out the item with the matching img
+  const updatedCartItems = cart.filter(item => item.img !== img);
   setCart(updatedCartItems);
-  console.log(cart)
+
   const user = auth.currentUser;
   if (!user) {
     console.error('User not logged in.');
@@ -107,12 +108,15 @@ const removeItem = async (tag) => {
     await userRef.update({
       cartArray: updatedCartItems
     });
-    setci(false)
+    setci(false);
     console.log('Item removed from cart and database updated successfully');
   } catch (error) {
     console.error('Error removing item from cart and updating database: ', error);
   }
 };
+
+
+
 
   return (
     <>
@@ -140,7 +144,7 @@ const removeItem = async (tag) => {
                     <span className="relative">Add to cart</span>
                   </button>
                     :
-                    <button onClick={() => removeItem(pet.tag)} className="rounded relative font-thin inline-flex group items-center justify-center p-1 m-1 cursor-pointer border-b-4 border-l-2 active:border-blue-600 active:shadow-none shadow-lg bg-gradient-to-tr from-blue-600 to-blue-500 border-blue-700 text-white">
+                    <button onClick={() => removeItem(pet.imgurl)} className="rounded relative font-thin inline-flex group items-center justify-center p-1 m-1 cursor-pointer border-b-4 border-l-2 active:border-blue-600 active:shadow-none shadow-lg bg-gradient-to-tr from-blue-600 to-blue-500 border-blue-700 text-white">
                     <span className="absolute w-0 h-0 transition-all duration-300 ease-out bg-white rounded-full group-hover:w-32 group-hover:h-32 opacity-10"></span>
                     <span className="relative">Remove from cart</span>
                   </button>

@@ -10,6 +10,10 @@ import Sellpet from './Pages/Sellpet'
 import Details from './Pages/Details';
 import Categories from './Pages/Categories';
 import Cart from './Pages/Cart';
+import About from './Pages/About';
+import Contact from './Pages/Contact';
+import Features from './Pages/Features';
+
 
 export default function Page() {
 
@@ -25,6 +29,11 @@ export default function Page() {
       <Route path='/details/:res' element={<Details/>}></Route>
       <Route path='/category/:id' element={<Categories/>}></Route>
       <Route path='/cart' element={<Cart/>}></Route>
+      <Route path='/cart' element={<Cart/>}></Route>
+      <Route path='/cart' element={<Cart/>}></Route>
+      <Route path='/about' element={<About/>}></Route>
+      <Route path='/contact' element={<Contact/>}></Route>
+      <Route path='/features' element={<Features/>}></Route>
     </Routes>
     {/* <Footer/> */}
     </div>
